@@ -1,11 +1,9 @@
 extends Area2D
 
-signal death
 
 func _on_body_entered(body):
-	print("Death!")
-	death.emit()
 	Engine.time_scale = .5
+	body.die()
 	$Timer.start(.5)
 
 
