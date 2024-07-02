@@ -7,4 +7,4 @@ extends Area2D
 
 func _on_body_entered(body):
 	animation_player.play("coin_get")
-	game_manager.increment_score()
+	game_manager.increment_coins()

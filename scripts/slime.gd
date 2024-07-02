@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 30.0
+const SPEED = 40.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight

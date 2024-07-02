@@ -1,8 +1,9 @@
 extends Node
 
-var score = 0
+var coins = 0
 
+@onready var hud = %HUD
 
-func increment_score():
-	score += 1
-	print("score: " + str(score))
+func increment_coins():
+	coins += 1
+	hud.update_coins_label(coins)
