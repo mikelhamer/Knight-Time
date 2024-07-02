@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
 @onready var jump_sound = $jump_sound
 
 var dead = false
@@ -54,7 +55,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func die():
-	print("u ded")
 	dead = true
-	animated_sprite.play('die')
-	
+	animation_player.play('die')
+	print("death complete")
