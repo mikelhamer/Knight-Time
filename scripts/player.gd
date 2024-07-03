@@ -20,6 +20,7 @@ func _physics_process(delta):
 		
 	if dead:
 		velocity.x = 0
+		velocity.y = 300
 		move_and_slide()
 		return
 

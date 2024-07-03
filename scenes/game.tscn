@@ -469,7 +469,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("1_am3aq")]
 z_index = 5
-position = Vector2(40, 388)
+position = Vector2(697, 418)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-18, -14)
@@ -479,7 +479,7 @@ limit_bottom = 120
 limit_smoothed = true
 
 [node name="Killzone" parent="." instance=ExtResource("4_a7h1a")]
-position = Vector2(347, 483)
+position = Vector2(347, 510)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -188)
@@ -542,6 +542,9 @@ position = Vector2(-96, 16)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("3_h4f6c")]
 position = Vector2(152, 87)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("3_h4f6c")]
+position = Vector2(504, 140)
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 
