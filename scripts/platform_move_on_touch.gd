@@ -1,7 +1,9 @@
 extends Node
 
-@onready var platform = $Platform
+@onready var static_body_2d = $StaticBody2D
 var player_on_platform = false
+@onready var this = $"."
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +13,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (player_on_platform):
-		platform.position.x -= 20 * delta
+		self.position.x -= 120 * delta
 
-
-
-
-
-func _on_body_entered(body):
+func _on_area_2d_body_entered(body):
 	player_on_platform = true

@@ -17,4 +17,4 @@ one_way_collision = true
 position = Vector2(0, 1)
 texture = ExtResource("1_elu8t")
 region_enabled = true
-region_rect = Rect2(17, 0, 31, 9)
+region_rect = Rect2(16, 0, 32, 9)
