@@ -8,6 +8,7 @@ size = Vector2(32, 9.5)
 
 [node name="PlatformMoveOnTouch" type="AnimatableBody2D"]
 position = Vector2(18, 9)
+collision_mask = 2
 script = ExtResource("1_0vyp1")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -29,4 +30,8 @@ texture = ExtResource("2_3gkli")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 9)
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
