@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyhbkr7n0wajv"]
+
+[ext_resource type="Script" path="res://scripts/platform_move_on_touch.gd" id="1_0vyp1"]
+[ext_resource type="PackedScene" uid="uid://bchu1xqsxkggn" path="res://scenes/platform.tscn" id="2_5xl4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpco6"]
+size = Vector2(31, 10)
+
+[node name="PlatformMoveOnTouch" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_0vyp1")
+
+[node name="Platform" parent="." instance=ExtResource("2_5xl4h")]
+position = Vector2(23, 15)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(22.5, 16)
+shape = SubResource("RectangleShape2D_hpco6")
+debug_color = Color(0.897082, 0.281863, 0.377506, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8iu55ij1jiyr"]
+[gd_scene load_steps=19 format=3 uid="uid://c8iu55ij1jiyr"]
 
 [ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://scenes/player.tscn" id="1_am3aq"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_klwje"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="4_a7h1a"]
 [ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://scenes/slime.tscn" id="5_oprod"]
 [ext_resource type="PackedScene" uid="uid://d2tf7xvwoh2rb" path="res://scenes/coin.tscn" id="6_lcrsb"]
+[ext_resource type="Script" path="res://scripts/platform_move_on_touch.gd" id="8_btpy7"]
+[ext_resource type="PackedScene" uid="uid://dyhbkr7n0wajv" path="res://scenes/platform_move_on_touch.tscn" id="10_aep1l"]
 
 [sub_resource type="GDScript" id="GDScript_omfhb"]
 script/source = "extends Node2D
@@ -442,7 +444,7 @@ pattern_1 = SubResource("TileMapPattern_l3ock")
 pattern_2 = SubResource("TileMapPattern_amgr0")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f377p"]
-distance = -184.0
+distance = -177.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i3ncw"]
 distance = 78.0
@@ -475,14 +477,14 @@ position = Vector2(697, 418)
 position = Vector2(-18, -14)
 zoom = Vector2(4, 4)
 limit_left = -240
-limit_bottom = 120
+limit_bottom = 150
 limit_smoothed = true
 
 [node name="Killzone" parent="." instance=ExtResource("4_a7h1a")]
-position = Vector2(347, 510)
+position = Vector2(347, 495)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -188)
+position = Vector2(-4, -153)
 shape = SubResource("WorldBoundaryShape2D_f377p")
 
 [node name="slime" parent="." instance=ExtResource("5_oprod")]
@@ -536,6 +538,7 @@ position = Vector2(-96, 0)
 position = Vector2(-38, 41)
 
 [node name="Platforms" type="Node" parent="."]
+script = ExtResource("8_btpy7")
 
 [node name="Platform" parent="Platforms" instance=ExtResource("3_h4f6c")]
 position = Vector2(-96, 16)
@@ -543,8 +546,8 @@ position = Vector2(-96, 16)
 [node name="Platform2" parent="Platforms" instance=ExtResource("3_h4f6c")]
 position = Vector2(152, 87)
 
-[node name="Platform3" parent="Platforms" instance=ExtResource("3_h4f6c")]
-position = Vector2(504, 140)
+[node name="PlatformMoveOnTouch" parent="Platforms" instance=ExtResource("10_aep1l")]
+position = Vector2(450, 119)
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 
