@@ -6,7 +6,7 @@ var moving = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (moving):
-		self.position.x -= 120 * delta
+		self.position.x -= 110 * delta
 
 func _on_area_2d_body_entered(body):
 	timer.start(1)

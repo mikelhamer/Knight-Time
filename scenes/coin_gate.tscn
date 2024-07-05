@@ -1,0 +1,177 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvhkt7ynupxkt"]
+
+[ext_resource type="Script" path="res://scripts/coin_gate.gd" id="1_hs5n2"]
+[ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="1_ohpqc"]
+[ext_resource type="AudioStream" uid="uid://bf5tyham50dv7" path="res://assets/sounds/hurt.wav" id="3_3006u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71mfr"]
+size = Vector2(20, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcf10"]
+size = Vector2(16, 66)
+
+[sub_resource type="Animation" id="Animation_bg4cr"]
+resource_name = "gate_open"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Blocks/Sprite2D4")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Blocks/Sprite2D3")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Blocks/Sprite2D2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/Blocks/Sprite2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_3006u")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_3006u")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_3006u")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_3006u")
+}],
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2)
+}
+tracks/5/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c5wlx"]
+_data = {
+"gate_open": SubResource("Animation_bg4cr")
+}
+
+[node name="CoinGate" type="Node2D"]
+script = ExtResource("1_hs5n2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_71mfr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_rcf10")
+debug_color = Color(0.890935, 0.289725, 0.385868, 0.42)
+
+[node name="Blocks" type="CanvasGroup" parent="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/Blocks"]
+texture = ExtResource("1_ohpqc")
+region_enabled = true
+region_rect = Rect2(96, 15, 17, 18)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D/Blocks"]
+position = Vector2(0, 16)
+texture = ExtResource("1_ohpqc")
+region_enabled = true
+region_rect = Rect2(96, 15, 17, 18)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Area2D/Blocks"]
+position = Vector2(0, 32)
+texture = ExtResource("1_ohpqc")
+region_enabled = true
+region_rect = Rect2(96, 15, 17, 18)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Area2D/Blocks"]
+position = Vector2(0, 48)
+texture = ExtResource("1_ohpqc")
+region_enabled = true
+region_rect = Rect2(96, 15, 17, 18)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -32.0
+offset_right = 71.0
+offset_bottom = -9.0
+text = "20 coins to pass!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c5wlx")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3006u")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
