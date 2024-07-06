@@ -7,3 +7,6 @@ var coins = 0
 func increment_coins():
 	coins += 1
 	hud.update_coins_label(coins)
+
+func load_credits():
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

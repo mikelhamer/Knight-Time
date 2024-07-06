@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ffc0pmowekfm"]
+
+[ext_resource type="Script" path="res://scripts/win.gd" id="1_qkx0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um3nk"]
+
+[sub_resource type="Animation" id="Animation_6b2g3"]
+resource_name = "win"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3b187"]
+_data = {
+"win": SubResource("Animation_6b2g3")
+}
+
+[node name="Win" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_qkx0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_um3nk")
+debug_color = Color(0.475496, 0.453057, 0.966262, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3b187")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
