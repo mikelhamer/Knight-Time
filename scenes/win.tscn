@@ -1,6 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ffc0pmowekfm"]
+[gd_scene load_steps=5 format=3 uid="uid://dt0snblxg1tv3"]
 
-[ext_resource type="Script" path="res://scripts/win.gd" id="1_qkx0r"]
+[sub_resource type="GDScript" id="GDScript_eciqh"]
+script/source = "extends Area2D
+
+@onready var animation_player = $AnimationPlayer
+
+
+func _on_body_entered(body):
+	State.won = true
+	print(State.won)
+	#animation_player.play(\"win\")
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um3nk"]
 
@@ -14,7 +24,7 @@ _data = {
 
 [node name="Win" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_qkx0r")
+script = SubResource("GDScript_eciqh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_um3nk")

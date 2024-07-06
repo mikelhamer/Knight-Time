@@ -19,6 +19,7 @@ script/source = "extends Node2D
 
 
 func _on_win_body_entered(body):
+	State.won = true
 	animation_player.play(\"win\")
 "
 
@@ -448,6 +449,21 @@ distance = 78.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f4v2"]
 size = Vector2(10, 14)
 
+[sub_resource type="Animation" id="Animation_1xbhg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.00784314, 0.00784314, 0.00784314, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ymbx6"]
 resource_name = "win"
 length = 2.2
@@ -478,21 +494,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_1xbhg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.00784314, 0.00784314, 0.00784314, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vinhw"]
 _data = {
 "RESET": SubResource("Animation_1xbhg"),
@@ -521,7 +522,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("1_am3aq")]
 z_index = 5
-position = Vector2(1121, 338)
+position = Vector2(1125, 326)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-18, -14)
@@ -636,11 +637,16 @@ debug_color = Color(0.466378, 0.456463, 0.96727, 0.42)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(0.827451, 0.827451, 0.827451, 0.976471)
-offset_left = -681.0
-offset_top = -606.0
-offset_right = 1887.0
-offset_bottom = 866.0
+anchors_preset = -1
+anchor_top = -0.0817901
+anchor_right = 0.857639
+anchor_bottom = -0.0817901
+offset_left = -1729.0
+offset_top = -556.0
+offset_right = 839.0
+offset_bottom = 916.0
 color = Color(0.00784314, 0.00784314, 0.00784314, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
