@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b38n4s6b5fpc5"]
+
+[ext_resource type="Script" path="res://scripts/left_wall.gd" id="1_rm56p"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i3ncw"]
+distance = 78.0
+
+[node name="LeftWall" type="Area2D"]
+script = ExtResource("1_rm56p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-103, 415)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_i3ncw")
+debug_color = Color(0.89004, 0.255549, 0.518644, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

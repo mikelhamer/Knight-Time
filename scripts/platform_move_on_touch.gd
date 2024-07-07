@@ -9,7 +9,7 @@ func _process(delta):
 		self.position.x -= 110 * delta
 
 func _on_area_2d_body_entered(body):
-	timer.start(1)
+	timer.start(.5)
 
 
 func _on_timer_timeout():
