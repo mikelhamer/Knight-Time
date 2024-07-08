@@ -12,6 +12,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	var scene = load("res://scenes/platform_move_on_touch.tscn")
-	add_child(scene )	
+	#var scene = load("res://scenes/platform_move_on_touch.tscn")
+	#add_child(scene )	
 	body.queue_free()
