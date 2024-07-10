@@ -72,7 +72,10 @@ func _physics_process(delta):
 
 	# apply physics changes
 	move_and_slide()
-	
+
+func bounce():
+	velocity.y = JUMP_VELOCITY
+
 func die():
 	dead = true
 	animation_player.play('die')

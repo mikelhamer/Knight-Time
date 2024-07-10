@@ -1,8 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg1jwegpspq4c"]
+[gd_scene load_steps=18 format=3 uid="uid://bg1jwegpspq4c"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_ky2rp"]
 [ext_resource type="Texture2D" uid="uid://caj5csky7ulr3" path="res://assets/sprites/slime_green.png" id="1_rwoes"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="2_q7cem"]
+[ext_resource type="AudioStream" uid="uid://bwcvl007ya41h" path="res://assets/sounds/jump.wav" id="4_smjhf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvxd0"]
+atlas = ExtResource("1_rwoes")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlyh1"]
+atlas = ExtResource("1_rwoes")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07pj6"]
+atlas = ExtResource("1_rwoes")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d7wo"]
+atlas = ExtResource("1_rwoes")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c03wt"]
 atlas = ExtResource("1_rwoes")
@@ -24,6 +41,23 @@ region = Rect2(72, 24, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pvxd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlyh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07pj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d7wo")
+}],
+"loop": true,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_c03wt")
 }, {
 "duration": 1.0,
@@ -41,25 +75,97 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6p4w"]
-size = Vector2(10, 10)
+size = Vector2(12, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leppr"]
+size = Vector2(10, 2)
+
+[sub_resource type="Animation" id="Animation_1b8ou"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DieSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65mdh"]
+_data = {
+"die": SubResource("Animation_1b8ou")
+}
 
 [node name="slime" type="Area2D"]
 script = ExtResource("1_ky2rp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ijdmb")
-animation = &"yum"
+animation = &"die"
 autoplay = "yum"
+frame = 1
+frame_progress = 0.346512
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_q7cem")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 6)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_j6p4w")
+debug_color = Color(0.996754, 0, 0.180426, 0.42)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-9, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)
+
+[node name="WeakSpot" type="Area2D" parent="."]
+collision_mask = 2
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeakSpot"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_leppr")
+debug_color = Color(0.903964, 0.235804, 0.500942, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_65mdh")
+}
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_smjhf")
+pitch_scale = 2.37
+
+[connection signal="died" from="Killzone" to="." method="_on_killzone_died"]
+[connection signal="body_entered" from="WeakSpot" to="." method="_on_weak_spot_body_entered"]

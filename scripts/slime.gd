@@ -1,10 +1,15 @@
 extends Area2D
 
 const SPEED = 40.0
+
+@export var move = false;
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
-@export var move = false;
+@onready var killzone = $Killzone
+@onready var weak_spot = $WeakSpot
+@onready var animation_player = $AnimationPlayer
 
 var direction = 'left'
 
@@ -33,4 +38,14 @@ func _process(delta):
 		animated_sprite.flip_h = false;
 	
 	
-	
+
+func _on_weak_spot_body_entered(body):
+	killzone.monitoring = false
+	move = false
+	body.bounce()
+	animated_sprite.play("die")
+	animation_player.play('die')
+
+
+func _on_killzone_died():
+	weak_spot.monitoring = false

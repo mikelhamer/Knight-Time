@@ -424,5 +424,6 @@ shape = SubResource("WorldBoundaryShape2D_yus81")
 [node name="PlatformMoveOnTouch" parent="." instance=ExtResource("4_tj8kd")]
 position = Vector2(408, 36)
 
-[node name="slime" parent="." instance=ExtResource("5_2him2")]
-position = Vector2(293, 62)
+[node name="slime3" parent="." instance=ExtResource("5_2him2")]
+position = Vector2(359, 19)
+move = true

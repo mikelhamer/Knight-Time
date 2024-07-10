@@ -534,10 +534,6 @@ position = Vector2(347, 495)
 position = Vector2(-4, -153)
 shape = SubResource("WorldBoundaryShape2D_f377p")
 
-[node name="slime" parent="." instance=ExtResource("5_oprod")]
-position = Vector2(594, 388)
-move = true
-
 [node name="Coins" type="Node" parent="."]
 
 [node name="coin" parent="Coins" instance=ExtResource("6_lcrsb")]
@@ -644,5 +640,23 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 "": SubResource("AnimationLibrary_vinhw")
 }
+
+[node name="Slimes" type="Node" parent="."]
+
+[node name="slime" parent="Slimes" instance=ExtResource("5_oprod")]
+position = Vector2(339, 39)
+move = true
+
+[node name="slime2" parent="Slimes" instance=ExtResource("5_oprod")]
+position = Vector2(41, -73)
+
+[node name="slime3" parent="Slimes" instance=ExtResource("5_oprod")]
+position = Vector2(601, 39)
+
+[node name="slime4" parent="Slimes" instance=ExtResource("5_oprod")]
+position = Vector2(634, 23)
+
+[node name="slime5" parent="Slimes" instance=ExtResource("5_oprod")]
+position = Vector2(665, 8)
 
 [connection signal="body_entered" from="Win" to="." method="_on_win_body_entered"]
