@@ -536,6 +536,7 @@ shape = SubResource("WorldBoundaryShape2D_f377p")
 
 [node name="slime" parent="." instance=ExtResource("5_oprod")]
 position = Vector2(594, 388)
+move = true
 
 [node name="Coins" type="Node" parent="."]
 

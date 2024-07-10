@@ -50,6 +50,7 @@ script = ExtResource("1_ky2rp")
 sprite_frames = SubResource("SpriteFrames_ijdmb")
 animation = &"yum"
 autoplay = "yum"
+flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_q7cem")]
 

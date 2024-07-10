@@ -4,6 +4,7 @@ const SPEED = 40.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
+@export var move = false;
 
 var direction = 'left'
 
@@ -14,6 +15,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if !move:
+		return
 	
 	if ray_cast_left.is_colliding():
 		direction = 'right';		
