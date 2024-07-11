@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ul120kqpt7o3"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_atedp"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_cdsy2"]
+[ext_resource type="PackedScene" uid="uid://bwuu7wo2tm4v3" path="res://scenes/title_screen.tscn" id="3_rdyj3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_cdsy2")
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("1_atedp")
+
+[node name="TitleScreen" parent="." instance=ExtResource("3_rdyj3")]
+
+[connection signal="game_started" from="TitleScreen" to="." method="_on_title_screen_game_started"]

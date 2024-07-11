@@ -517,7 +517,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("1_am3aq")]
 z_index = 5
-position = Vector2(695, 399)
+position = Vector2(55, 343)
 
 [node name="Killzone" parent="." instance=ExtResource("4_a7h1a")]
 position = Vector2(347, 495)
@@ -604,6 +604,7 @@ position = Vector2(456, 139)
 
 [node name="CoinGate" parent="." instance=ExtResource("11_7q0k3")]
 position = Vector2(1095, 279)
+coins_required = 20
 
 [node name="Win" type="Area2D" parent="."]
 collision_mask = 2
