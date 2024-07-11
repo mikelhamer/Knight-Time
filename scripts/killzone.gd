@@ -6,6 +6,7 @@ signal died
 func _on_body_entered(body):
 	body.die()
 	died.emit()
+	State.subtract_level_coins()
 	Engine.time_scale = .7
 	$Timer.start(.5)
 

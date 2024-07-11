@@ -1,12 +1,17 @@
 extends Node
 
-var coins = 0
-
 @onready var hud = %HUD
 
-func increment_coins():
-	coins += 1
-	hud.update_coins_label(coins)
+var levels = {
+	'1': 'res://scenes/level_1.tscn',
+	'2': 'res://scenes/level_2.tscn',
+	'credits': 'res://scenes/credits.tscn'
+}
 
-func load_credits():
-	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+func increment_coins():
+	State.add_level_coin()
+	hud.update_coins_label()
+
+func load_level(name: String):
+	State.level_coins = 0
+	get_tree().change_scene_to_file(levels[name])

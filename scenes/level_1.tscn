@@ -16,10 +16,9 @@ script/source = "extends Node2D
 
 @onready var animation_player = $AnimationPlayer
 
-
 func _on_win_body_entered(body):
 	State.won = true
-	animation_player.play(\"win\")
+	animation_player.play(\"next_level\")
 "
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
@@ -485,18 +484,18 @@ tracks/1/keys = {
 "times": PackedFloat32Array(2.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"load_credits"
+"args": ["2"],
+"method": &"load_level"
 }]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vinhw"]
 _data = {
 "RESET": SubResource("Animation_1xbhg"),
-"win": SubResource("Animation_ymbx6")
+"next_level": SubResource("Animation_ymbx6")
 }
 
-[node name="Game" type="Node2D"]
+[node name="Level1" type="Node2D"]
 position = Vector2(-255, -349)
 script = SubResource("GDScript_omfhb")
 
@@ -518,7 +517,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("1_am3aq")]
 z_index = 5
-position = Vector2(74, 388)
+position = Vector2(695, 399)
 
 [node name="Killzone" parent="." instance=ExtResource("4_a7h1a")]
 position = Vector2(347, 495)

@@ -4,6 +4,7 @@ extends CanvasLayer
 
 func _ready():
 	visible = true
+	update_coins_label()
 
-func update_coins_label(coins):
-	coins_label.text = "Coins: %s" % coins
+func update_coins_label():
+	coins_label.text = "Coins: %s" % State.total_coins

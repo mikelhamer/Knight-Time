@@ -170,7 +170,6 @@ offset_bottom = -16.0
 theme_override_fonts/font = ExtResource("3_yt3eq")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_2eaxo")
-text = "20 coins to pass!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
