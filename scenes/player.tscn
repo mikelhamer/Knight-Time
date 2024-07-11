@@ -290,4 +290,11 @@ target_position = Vector2(0, 17)
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2(-1, -12)
+zoom = Vector2(4, 4)
+limit_left = -255
+limit_bottom = 150
+limit_smoothed = true
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
