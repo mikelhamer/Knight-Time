@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bg1jwegpspq4c"]
+[gd_scene load_steps=19 format=3 uid="uid://bg1jwegpspq4c"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_ky2rp"]
 [ext_resource type="Texture2D" uid="uid://caj5csky7ulr3" path="res://assets/sprites/slime_green.png" id="1_rwoes"]
@@ -125,6 +125,9 @@ _data = {
 "die": SubResource("Animation_1b8ou")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jt1h"]
+size = Vector2(14, 11)
+
 [node name="slime" type="Area2D"]
 script = ExtResource("1_ky2rp")
 
@@ -156,7 +159,7 @@ priority = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeakSpot"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_leppr")
-debug_color = Color(0.903964, 0.235804, 0.500942, 0.42)
+debug_color = Color(0.908516, 0.38834, 0.347308, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -166,6 +169,11 @@ libraries = {
 [node name="DieSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_smjhf")
 pitch_scale = 2.37
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_6jt1h")
+debug_color = Color(0.257236, 0.634519, 3.10843e-07, 0.42)
 
 [connection signal="died" from="Killzone" to="." method="_on_killzone_died"]
 [connection signal="body_entered" from="WeakSpot" to="." method="_on_weak_spot_body_entered"]
