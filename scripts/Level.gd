@@ -1,8 +1,8 @@
-extends Node
+extends Node2D
 
-@onready var title_screen = $TitleScreen
-@onready var world = $World
-@onready var animation_player = $AnimationPlayer
+class_name Level
+
+signal completed
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,8 +13,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_title_screen_game_started():
-	remove_child(title_screen)
-	world.load_next_level()

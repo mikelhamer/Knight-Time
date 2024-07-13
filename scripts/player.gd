@@ -11,6 +11,7 @@ const COYOTE_TIME_SECONDS = 0.1
 @onready var jump_sound = $jump_sound
 @onready var win = $"../Win"
 
+var stopped = false
 var dead = false
 var was_on_floor = false
 
@@ -26,10 +27,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if State.won:
+	if stopped:
 		animated_sprite.stop()
 		
-	if dead or State.won:
+	if dead or stopped:
 		velocity.x = 0
 		velocity.y = 300
 		move_and_slide()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8iu55ij1jiyr"]
+[gd_scene load_steps=19 format=3 uid="uid://c8iu55ij1jiyr"]
 
 [ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://scenes/player.tscn" id="1_am3aq"]
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_da0er"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_klwje"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_r8j8h"]
 [ext_resource type="PackedScene" uid="uid://bac5e641aovsr" path="res://scenes/hud.tscn" id="2_vc1d7"]
@@ -10,16 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://d2tf7xvwoh2rb" path="res://scenes/coin.tscn" id="6_lcrsb"]
 [ext_resource type="PackedScene" uid="uid://dyhbkr7n0wajv" path="res://scenes/platform_move_on_touch.tscn" id="10_aep1l"]
 [ext_resource type="PackedScene" uid="uid://cvhkt7ynupxkt" path="res://scenes/coin_gate.tscn" id="11_7q0k3"]
-
-[sub_resource type="GDScript" id="GDScript_omfhb"]
-script/source = "extends Node2D
-
-@onready var animation_player = $AnimationPlayer
-
-func _on_win_body_entered(body):
-	State.won = true
-	animation_player.play(\"next_level\")
-"
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 0, 0, 65537, 0, 1, 2, 0, 0, 65538, 0, 1)
@@ -444,60 +435,9 @@ distance = -177.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f4v2"]
 size = Vector2(10, 14)
 
-[sub_resource type="Animation" id="Animation_1xbhg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.00784314, 0.00784314, 0.00784314, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ymbx6"]
-resource_name = "win"
-length = 2.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.00784314, 0.00784314, 0.00784314, 0), Color(0.00784314, 0.00784314, 0.00784314, 1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameManager")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["2"],
-"method": &"load_level"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vinhw"]
-_data = {
-"RESET": SubResource("Animation_1xbhg"),
-"next_level": SubResource("Animation_ymbx6")
-}
-
 [node name="Level1" type="Node2D"]
 position = Vector2(-255, -349)
-script = SubResource("GDScript_omfhb")
+script = ExtResource("1_da0er")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -517,14 +457,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("1_am3aq")]
 z_index = 5
-position = Vector2(55, 343)
-
-[node name="Killzone" parent="." instance=ExtResource("4_a7h1a")]
-position = Vector2(347, 495)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-4, -153)
-shape = SubResource("WorldBoundaryShape2D_f377p")
+position = Vector2(747, 400)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -588,6 +521,9 @@ position = Vector2(-232, 89)
 [node name="coin10" parent="Coins" instance=ExtResource("6_lcrsb")]
 position = Vector2(58, 88)
 
+[node name="coin20" parent="Coins" instance=ExtResource("6_lcrsb")]
+position = Vector2(874, -21)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("3_h4f6c")]
@@ -601,38 +537,6 @@ position = Vector2(152, 69)
 
 [node name="PlatformMoveOnTouch" parent="Platforms" instance=ExtResource("10_aep1l")]
 position = Vector2(456, 139)
-
-[node name="CoinGate" parent="." instance=ExtResource("11_7q0k3")]
-position = Vector2(1095, 279)
-coins_required = 20
-
-[node name="Win" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
-position = Vector2(1147, 330)
-shape = SubResource("RectangleShape2D_6f4v2")
-debug_color = Color(0.466378, 0.456463, 0.96727, 0.42)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-modulate = Color(0.827451, 0.827451, 0.827451, 0.976471)
-anchors_preset = -1
-anchor_top = -0.0817901
-anchor_right = 0.857639
-anchor_bottom = -0.0817901
-offset_left = -1767.0
-offset_top = -632.0
-offset_right = 801.0
-offset_bottom = 840.0
-color = Color(0.00784314, 0.00784314, 0.00784314, 0)
-metadata/_edit_use_anchors_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vinhw")
-}
 
 [node name="Slimes" type="Node" parent="."]
 
@@ -652,4 +556,23 @@ position = Vector2(634, 23)
 [node name="slime5" parent="Slimes" instance=ExtResource("5_oprod")]
 position = Vector2(665, 8)
 
-[connection signal="body_entered" from="Win" to="." method="_on_win_body_entered"]
+[node name="CoinGate" parent="." instance=ExtResource("11_7q0k3")]
+position = Vector2(1095, 279)
+coins_required = 20
+
+[node name="Killzone" parent="." instance=ExtResource("4_a7h1a")]
+position = Vector2(347, 495)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-4, -153)
+shape = SubResource("WorldBoundaryShape2D_f377p")
+
+[node name="CompleteLevel" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompleteLevel"]
+position = Vector2(1147, 330)
+shape = SubResource("RectangleShape2D_6f4v2")
+debug_color = Color(0.466378, 0.456463, 0.96727, 0.42)
+
+[connection signal="body_entered" from="CompleteLevel" to="." method="_on_complete_level_body_entered"]
