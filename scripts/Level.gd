@@ -1,16 +1,16 @@
 extends Node2D
-
 class_name Level
 
-signal completed
-signal failed
+@onready var complete_level: Area2D = $CompleteLevel
 
+signal completed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	if (complete_level):
+		complete_level.body_entered.connect(_on_level_completed)
+	
+func _on_level_completed(player: Player):
+	player.stopped = true
+	Game.level_coins = 0
+	completed.emit()

@@ -5,6 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://bwuu7wo2tm4v3" path="res://scenes/title_screen.tscn" id="3_rdyj3"]
 [ext_resource type="PackedScene" uid="uid://bac5e641aovsr" path="res://scenes/hud.tscn" id="4_3bxsk"]
 
+[sub_resource type="Animation" id="Animation_f24hw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_sq16o"]
 resource_name = "fade_to_next_level"
 length = 1.7
@@ -33,21 +48,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"load_next_level"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_f24hw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasModulate:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vc0gf"]

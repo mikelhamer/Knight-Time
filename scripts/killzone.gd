@@ -7,5 +7,5 @@ func _on_body_entered(body):
 	timer.start()
 
 func _on_timer_timeout():
-	State.subtract_level_coins()
-	State.died.emit()
+	Game.subtract_level_coins()
+	Game.died.emit()

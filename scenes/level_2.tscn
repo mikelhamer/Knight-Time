@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://80sylcvbgkq"]
 
-[ext_resource type="Script" path="res://scripts/level_2.gd" id="1_7dtwc"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_8eij6"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="3_lfgd6"]
 [ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://scenes/player.tscn" id="4_joxg3"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="5_enqiv"]
@@ -433,7 +433,7 @@ size = Vector2(10, 14)
 
 [node name="Level2" type="Node2D"]
 position = Vector2(127, -298)
-script = ExtResource("1_7dtwc")
+script = ExtResource("1_8eij6")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ta5rg")
@@ -486,5 +486,3 @@ collision_mask = 2
 position = Vector2(3, 2)
 shape = SubResource("RectangleShape2D_6f4v2")
 debug_color = Color(0.887733, 0.279294, 0.452642, 1)
-
-[connection signal="body_entered" from="CompleteLevel" to="." method="_on_complete_level_body_entered"]

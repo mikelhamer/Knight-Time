@@ -4,4 +4,4 @@ extends Area2D
 
 func _on_body_entered(body):
 	animation_player.play("coin_get")
-	State.add_level_coin()
+	Game.add_level_coin()

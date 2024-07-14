@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-State="*res://scripts/state.gd"
-Music="*res://scenes/music.tscn"
+Game="*res://scripts/game.gd"
+Music="res://scenes/music.tscn"
 
 [input]
 
