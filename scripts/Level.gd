@@ -3,6 +3,7 @@ extends Node2D
 class_name Level
 
 signal completed
+signal failed
 
 
 # Called when the node enters the scene tree for the first time.

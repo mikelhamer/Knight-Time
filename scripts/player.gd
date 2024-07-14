@@ -80,4 +80,3 @@ func bounce():
 func die():
 	dead = true
 	animation_player.play('die')
-

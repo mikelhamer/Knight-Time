@@ -58,6 +58,8 @@ _data = {
 [node name="Main" type="Node"]
 script = ExtResource("1_cdsy2")
 
+[node name="TitleScreen" parent="." instance=ExtResource("3_rdyj3")]
+
 [node name="World" type="Node2D" parent="."]
 script = ExtResource("1_atedp")
 
@@ -67,7 +69,5 @@ script = ExtResource("1_atedp")
 libraries = {
 "": SubResource("AnimationLibrary_vc0gf")
 }
-
-[node name="TitleScreen" parent="." instance=ExtResource("3_rdyj3")]
 
 [connection signal="game_started" from="TitleScreen" to="." method="_on_title_screen_game_started"]

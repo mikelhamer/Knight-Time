@@ -108,17 +108,6 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_65mdh"]
 _data = {
@@ -175,5 +164,5 @@ position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_6jt1h")
 debug_color = Color(0.257236, 0.634519, 3.10843e-07, 0.42)
 
-[connection signal="died" from="Killzone" to="." method="_on_killzone_died"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="WeakSpot" to="." method="_on_weak_spot_body_entered"]
