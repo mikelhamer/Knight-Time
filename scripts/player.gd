@@ -2,18 +2,22 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const BOUNCE_VELOCITY = -300
+const INITIAL_JUMP_VELOCITY = -50
+const CONTINUOUS_JUMP_VELOCITY = -50.0
+const MAX_JUMP_VELOCITY = -250.0
 const COYOTE_TIME_SECONDS = 0.1
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var coyote_timer = $CoyoteTimer
 @onready var jump_sound = $jump_sound
-@onready var win = $"../Win"
 
 var stopped = false
 var dead = false
 var was_on_floor = false
+var jumping = false
+var current_jump_velocity = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,8 +45,15 @@ func _physics_process(delta):
 	
 	if (Input.is_action_just_pressed("jump") 
 			and (is_on_floor() or !coyote_timer.is_stopped())):
-		velocity.y = JUMP_VELOCITY
+		jumping = true
+		velocity.y = INITIAL_JUMP_VELOCITY
 		jump_sound.play()
+	if velocity.y < MAX_JUMP_VELOCITY:
+		jumping = false
+	if (Input.is_action_pressed("jump") && jumping):
+		velocity.y += CONTINUOUS_JUMP_VELOCITY
+
+		
 
 	# Get the input direction (-1, 0, 1)
 	var direction = Input.get_axis("move_left", "move_right")
@@ -75,7 +86,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func bounce():
-	velocity.y = JUMP_VELOCITY
+	velocity.y = BOUNCE_VELOCITY
 
 func die():
 	dead = true
