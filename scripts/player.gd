@@ -1,7 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 130.0
+const SPEED = 80.0
+const RUN_SPEED = 130.0
 const BOUNCE_VELOCITY = -300
 const INITIAL_JUMP_VELOCITY = -50
 const CONTINUOUS_JUMP_VELOCITY = -50.0
@@ -18,6 +19,7 @@ var dead = false
 var was_on_floor = false
 var jumping = false
 var current_jump_velocity = 0
+var speed = SPEED
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -73,11 +75,16 @@ func _physics_process(delta):
 	else:
 		animated_sprite.play('jump')
 		
+	if is_on_floor():
+		if Input.is_action_pressed("run"):
+			speed = RUN_SPEED
+		else:
+			speed = SPEED
 	# handle the movement/deceleration.
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	# check if player was on the floor during the last frame, before applying physics to this frame
 	was_on_floor = is_on_floor()
