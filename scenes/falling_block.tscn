@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1lbnuh0kk2f8"]
+
+[ext_resource type="Script" path="res://scripts/falling_block.gd" id="1_0t1so"]
+[ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_q3cig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlljt"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajfxf"]
+size = Vector2(16, 4)
+
+[node name="FallingBlock" type="AnimatableBody2D"]
+script = ExtResource("1_0t1so")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q3cig")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_jlljt")
+
+[node name="FallTrigger" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallTrigger"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ajfxf")
+debug_color = Color(0.88881, 0.27241, 0.471349, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="FallTrigger" to="." method="_on_fall_trigger_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
