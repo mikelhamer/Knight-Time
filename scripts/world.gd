@@ -19,7 +19,6 @@ func load_next_level():
 	if current_level_index == levels.size():
 		get_tree().change_scene_to_file("res://scenes/credits.tscn")
 		return
-	print(current_level_index)
 	load_level(current_level_index)
 	animation_player.play("RESET")
 
