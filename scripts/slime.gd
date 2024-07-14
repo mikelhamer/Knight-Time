@@ -38,15 +38,11 @@ func _process(delta):
 		animated_sprite.flip_h = false;
 
 func _on_weak_spot_body_entered(body):
-	print("weakspot entered")
 	killzone.monitoring = false
 	move = false
 	body.bounce()
 	animated_sprite.play("die")
 	animation_player.play('die')
-	
-
 
 func _on_killzone_body_entered(body):
-	print("killzone entered")
 	weak_spot.monitoring = false

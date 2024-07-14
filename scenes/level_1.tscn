@@ -1,10 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8iu55ij1jiyr"]
+[gd_scene load_steps=17 format=3 uid="uid://c8iu55ij1jiyr"]
 
 [ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://scenes/player.tscn" id="1_am3aq"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_da0er"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_klwje"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_r8j8h"]
-[ext_resource type="PackedScene" uid="uid://bac5e641aovsr" path="res://scenes/hud.tscn" id="2_vc1d7"]
 [ext_resource type="PackedScene" uid="uid://bchu1xqsxkggn" path="res://scenes/platform.tscn" id="3_h4f6c"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="4_a7h1a"]
 [ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://scenes/slime.tscn" id="5_oprod"]
@@ -438,14 +436,6 @@ size = Vector2(10, 14)
 [node name="Level1" type="Node2D"]
 position = Vector2(-255, -349)
 script = ExtResource("1_da0er")
-
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_klwje")
-
-[node name="HUD" parent="." instance=ExtResource("2_vc1d7")]
-unique_name_in_owner = true
-visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ta5rg")

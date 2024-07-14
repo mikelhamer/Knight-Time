@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ul120kqpt7o3"]
+[gd_scene load_steps=8 format=3 uid="uid://ul120kqpt7o3"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_atedp"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_cdsy2"]
 [ext_resource type="PackedScene" uid="uid://bwuu7wo2tm4v3" path="res://scenes/title_screen.tscn" id="3_rdyj3"]
+[ext_resource type="PackedScene" uid="uid://bac5e641aovsr" path="res://scenes/hud.tscn" id="4_3bxsk"]
 
 [sub_resource type="Animation" id="Animation_sq16o"]
 resource_name = "fade_to_next_level"
@@ -59,6 +60,9 @@ _data = {
 script = ExtResource("1_cdsy2")
 
 [node name="TitleScreen" parent="." instance=ExtResource("3_rdyj3")]
+
+[node name="HUD" parent="." instance=ExtResource("4_3bxsk")]
+visible = false
 
 [node name="World" type="Node2D" parent="."]
 script = ExtResource("1_atedp")
