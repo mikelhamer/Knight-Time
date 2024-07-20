@@ -11,6 +11,6 @@ func _ready():
 		complete_level.body_entered.connect(_on_level_completed)
 	
 func _on_level_completed(player: Player):
-	player.stopped = true
+	player.stop()
 	Game.level_coins = 0
 	completed.emit()
