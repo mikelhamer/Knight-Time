@@ -3,7 +3,8 @@ class_name Player
 
 # Inspector properties
 @export var move_speed := 140.0
-@export var jump_height := 50.00
+@export var jump_height := 40.00
+
 @export var jump_seconds_to_peak := 0.4
 @export var jump_seconds_to_descent := .3
 @export var coyote_seconds := .1
@@ -22,6 +23,7 @@ var dead := false
 var stopped := false
 var was_on_floor := false
 var input_direction := 0
+var jumping = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -55,7 +57,18 @@ func _physics_process(delta):
 	
 	# Jump
 	if jump_just_pressed() and can_jump():
+		print("initial jump: " + str(jump_velocity))
 		jump()
+	if Input.is_action_pressed("jump") and jumping:
+		print("continuous jump: " + str(velocity.y))
+		if false:
+			pass
+			#velocity.y += continuous_jump_velocity
+		else:
+			print("stopped jump at: " + str(velocity.y))
+			jumping = false
+			
+		
 
 	# Update floor check
 	was_on_floor = is_on_floor()
@@ -81,6 +94,7 @@ func can_jump() -> bool:
 
 func jump():
 	velocity.y = jump_velocity
+	jumping = true
 	jump_sound.play()
 
 func get_input_direction() -> float:
@@ -95,9 +109,6 @@ func flip_sprite_for_input_direction():
 
 func just_ran_off_floor():
 	return was_on_floor and !is_on_floor()
-
-func bounce():
-	velocity.y = -320
 
 func die():
 	dead = true

@@ -40,7 +40,7 @@ func _process(delta):
 func _on_weak_spot_body_entered(body):
 	killzone.monitoring = false
 	move = false
-	body.bounce()
+	body.jump()
 	animated_sprite.play("die")
 	animation_player.play('die')
 
