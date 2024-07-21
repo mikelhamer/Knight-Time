@@ -78,7 +78,7 @@ animations = [{
 size = Vector2(12, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leppr"]
-size = Vector2(4, 2)
+size = Vector2(4, 4)
 
 [sub_resource type="Animation" id="Animation_1b8ou"]
 resource_name = "die"
@@ -115,6 +115,7 @@ _data = {
 }
 
 [node name="slime" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_ky2rp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -143,6 +144,7 @@ collision_mask = 2
 priority = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeakSpot"]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_leppr")
 debug_color = Color(0.908516, 0.38834, 0.347308, 0.419608)
 

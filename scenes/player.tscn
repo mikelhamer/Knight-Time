@@ -296,5 +296,6 @@ zoom = Vector2(4, 4)
 limit_left = -255
 limit_bottom = 150
 limit_smoothed = true
+position_smoothing_speed = 10.0
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
