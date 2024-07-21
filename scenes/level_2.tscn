@@ -446,18 +446,18 @@ layer_1/tile_data = PackedInt32Array(1376232, 196608, 0, 1441768, 196608, 0, 150
 
 [node name="Player" parent="." instance=ExtResource("4_joxg3")]
 z_index = 5
-position = Vector2(-298, 385)
+position = Vector2(-327, 387)
 
 [node name="Coins" type="Node" parent="."]
 
 [node name="coin" parent="Coins" instance=ExtResource("6_4j4ce")]
-position = Vector2(-154, 90)
+position = Vector2(-153, 68)
 
 [node name="coin2" parent="Coins" instance=ExtResource("6_4j4ce")]
-position = Vector2(-105, 70)
+position = Vector2(-80, 74)
 
 [node name="coin3" parent="Coins" instance=ExtResource("6_4j4ce")]
-position = Vector2(20, 72)
+position = Vector2(28, 85)
 
 [node name="coin4" parent="Coins" instance=ExtResource("6_4j4ce")]
 position = Vector2(152, 37)
@@ -512,10 +512,10 @@ position = Vector2(695, -147)
 [node name="Slimes" type="Node" parent="."]
 
 [node name="slime_purple" parent="Slimes" instance=ExtResource("7_jmqrs")]
-position = Vector2(-90, 91)
+position = Vector2(-80, 91)
 
 [node name="slime_purple2" parent="Slimes" instance=ExtResource("7_jmqrs")]
-position = Vector2(-37, 65)
+position = Vector2(-24, 123)
 
 [node name="slime_purple3" parent="Slimes" instance=ExtResource("7_jmqrs")]
 position = Vector2(28, 98)

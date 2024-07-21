@@ -3,8 +3,7 @@ class_name Player
 
 # Inspector properties
 @export var move_speed := 140.0
-@export var jump_height := 40.00
-
+@export var jump_height := 50.00
 @export var jump_seconds_to_peak := 0.4
 @export var jump_seconds_to_descent := .3
 @export var coyote_seconds := .1
@@ -23,7 +22,7 @@ var dead := false
 var stopped := false
 var was_on_floor := false
 var input_direction := 0
-var jumping = false
+var bouncing = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -57,18 +56,11 @@ func _physics_process(delta):
 	
 	# Jump
 	if jump_just_pressed() and can_jump():
-		print("initial jump: " + str(jump_velocity))
 		jump()
-	if Input.is_action_pressed("jump") and jumping:
-		print("continuous jump: " + str(velocity.y))
-		if false:
-			pass
-			#velocity.y += continuous_jump_velocity
-		else:
-			print("stopped jump at: " + str(velocity.y))
-			jumping = false
-			
-		
+	
+	# Reevaluate bouncing
+	if bouncing and is_on_floor():
+		bouncing = false
 
 	# Update floor check
 	was_on_floor = is_on_floor()
@@ -83,7 +75,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
+	var jumping = (velocity.y < 0.0 and Input.is_action_pressed("jump")) and !bouncing
+	return jump_gravity if jumping else fall_gravity
 
 func jump_just_pressed():
 	return Input.is_action_just_pressed("jump")
@@ -94,8 +87,11 @@ func can_jump() -> bool:
 
 func jump():
 	velocity.y = jump_velocity
-	jumping = true
 	jump_sound.play()
+	
+func bounce():
+	velocity.y = jump_velocity * 1.4
+	bouncing = true
 
 func get_input_direction() -> float:
 	# Get the input direction (left = -1, neutral = 0, right = 1)
