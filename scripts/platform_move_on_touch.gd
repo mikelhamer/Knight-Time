@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-const SPEED = 110
+const SPEED = 200
 const MOVE_SECONDS = 15
 
 @onready var move_timer = $MoveTimer
