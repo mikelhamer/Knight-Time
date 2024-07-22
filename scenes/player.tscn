@@ -299,6 +299,10 @@ stream = ExtResource("4_eny3m")
 pitch_scale = 0.85
 bus = &"SFX"
 
+[node name="swim_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y5nc0")
+pitch_scale = 2.98
+
 [node name="CoyoteRay" type="RayCast2D" parent="."]
 target_position = Vector2(0, 17)
 

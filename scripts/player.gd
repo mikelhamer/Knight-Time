@@ -13,6 +13,7 @@ class_name Player
 @onready var animation_player = $AnimationPlayer
 @onready var coyote_timer = $CoyoteTimer
 @onready var jump_sound = $jump_sound
+@onready var swim_sound = $swim_sound
 # Calculated jump properties
 # https://www.youtube.com/watch?v=FvFx1R3p-aw
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_seconds_to_peak) * -1.0
@@ -94,7 +95,10 @@ func can_jump() -> bool:
 
 func jump():
 	velocity.y = jump_velocity
-	jump_sound.play()
+	if in_water:
+		swim_sound.play()
+	else:
+		jump_sound.play()
 	
 func bounce():
 	velocity.y = jump_velocity * 1.4
