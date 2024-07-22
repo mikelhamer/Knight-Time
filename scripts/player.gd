@@ -3,6 +3,7 @@ class_name Player
 
 # Inspector properties
 @export var move_speed := 140.0
+@export var swim_speed := 80.0
 @export var jump_height := 50.00
 @export var jump_seconds_to_peak := 0.4
 @export var jump_seconds_to_descent := .3
@@ -23,6 +24,7 @@ var stopped := false
 var was_on_floor := false
 var input_direction := 0
 var bouncing = false
+var in_water = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -42,13 +44,16 @@ func _physics_process(delta):
 	
 	# Apply gravity
 	velocity.y += get_gravity() * delta
+	if in_water:
+		velocity.y *= .8
 	
 	# Handle horizontal movement
 	input_direction = get_input_direction()
+	var speed = swim_speed if in_water else move_speed
 	if input_direction:
-		velocity.x = input_direction * move_speed
+		velocity.x = input_direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	# Check if entering coyote time
 	if just_ran_off_floor():
@@ -82,6 +87,8 @@ func jump_just_pressed():
 	return Input.is_action_just_pressed("jump")
 
 func can_jump() -> bool:
+	if in_water:
+		return true
 	return not velocity.y < 0  and \
 			(is_on_floor() or !coyote_timer.is_stopped())
 
@@ -114,6 +121,9 @@ func stop():
 	stopped = true
 
 func update_animation():
+	if in_water:
+		animated_sprite.play("swim")
+		return
 	if is_on_floor():
 		if input_direction:
 			animated_sprite.play('run')
@@ -121,3 +131,13 @@ func update_animation():
 			animated_sprite.play('idle')
 	else:
 		animated_sprite.play('jump')
+
+
+func _on_water_detector_body_entered(body):
+	in_water = true
+	print("enter water")
+
+
+func _on_water_detector_body_exited(body):
+	in_water = false
+	print("exit water")

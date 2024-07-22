@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bij7cabj3icl6"]
+[gd_scene load_steps=37 format=3 uid="uid://bij7cabj3icl6"]
 
 [ext_resource type="Texture2D" uid="uid://gntl61ojaeu0" path="res://assets/sprites/knight.png" id="1_2y6w7"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_nauhq"]
@@ -105,6 +105,10 @@ region = Rect2(192, 96, 32, 32)
 atlas = ExtResource("1_2y6w7")
 region = Rect2(224, 96, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_co0me"]
+atlas = ExtResource("1_2y6w7")
+region = Rect2(96, 224, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2y0n4"]
 animations = [{
 "frames": [{
@@ -201,6 +205,14 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co0me")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j20py"]
@@ -256,6 +268,9 @@ _data = {
 "die": SubResource("Animation_wk8e5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6ngi"]
+size = Vector2(14, 5)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(1, 0)
 collision_layer = 2
@@ -263,7 +278,7 @@ script = ExtResource("1_nauhq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2y0n4")
-animation = &"run"
+animation = &"swim"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -298,4 +313,15 @@ limit_bottom = 150
 limit_smoothed = true
 position_smoothing_speed = 10.0
 
+[node name="WaterDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector"]
+position = Vector2(-1, 10)
+shape = SubResource("RectangleShape2D_m6ngi")
+debug_color = Color(0.0819508, 0.52388, 1, 0.42)
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="body_entered" from="WaterDetector" to="." method="_on_water_detector_body_entered"]
+[connection signal="body_exited" from="WaterDetector" to="." method="_on_water_detector_body_exited"]

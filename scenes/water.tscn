@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bpf5p3tq02thx"]
+
+[node name="Water" type="Area2D"]
