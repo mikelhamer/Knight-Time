@@ -103,6 +103,10 @@ func jump():
 func bounce():
 	velocity.y = jump_velocity * 1.4
 	bouncing = true
+	
+func bounce_high():
+	velocity.y = jump_velocity * 2.0
+	bouncing = true
 
 func get_input_direction() -> float:
 	# Get the input direction (left = -1, neutral = 0, right = 1)
