@@ -1,7 +1,7 @@
 extends Area2D
 
 const SPEED = 60.0
-const MAX_HITS = 7
+const MAX_HITS = 3
 var hits = 0
 
 @export var move = false;
