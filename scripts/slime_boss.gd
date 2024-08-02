@@ -77,7 +77,8 @@ func _on_i_frame_timer_timeout():
 
 
 func _on_laser_timer_timeout():
-	shoot_laser()
+	if not i_frame_timer.time_left:
+		shoot_laser()
 	
 func shoot_laser():
 	var lazer_scene = load('res://scenes/lazer.tscn') as PackedScene
