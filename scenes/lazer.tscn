@@ -1,47 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://c52npb1t64oes"]
+[gd_scene load_steps=7 format=3 uid="uid://c52npb1t64oes"]
 
 [ext_resource type="Script" path="res://scripts/lazer.gd" id="1_52v87"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="2_ocowc"]
+[ext_resource type="AudioStream" uid="uid://bn35wo03kknby" path="res://assets/sounds/power_up.wav" id="3_1pap8"]
 
 [sub_resource type="Animation" id="Animation_wngdx"]
 resource_name = "shoot"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-5.9322, 5.9322), Vector2(-150, 5.932)]
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(0.4, 2.3)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(0.5, 2)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LaserSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_32rco"]
@@ -74,3 +76,8 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(-35, 1.534)
 shape = SubResource("RectangleShape2D_82o5w")
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1pap8")
+pitch_scale = 1.35
+bus = &"SFX"

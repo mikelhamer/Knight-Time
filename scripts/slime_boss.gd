@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 60.0
+const SPEED = 50.0
 const MAX_HITS = 3
 var hits = 0
 
@@ -36,10 +36,12 @@ func _process(delta):
 		
 	if direction == 'left':
 		position.x -= SPEED * delta
-		scale = Vector2(2.36, 2.36)		
+		scale = Vector2(2.36, 2.36)	
+		#animated_sprite.flip_h = true	
 	elif direction == 'right':
 		position.x += SPEED * delta
 		scale = Vector2(-2.36, 2.36)
+		#animated_sprite.flip_h = false
 
 func _on_weak_spot_body_entered(body):
 	if i_frame_timer.time_left:
@@ -72,3 +74,18 @@ func play_yum():
 func _on_i_frame_timer_timeout():
 	killzone.monitoring = true
 	weak_spot.monitoring = true
+
+
+func _on_laser_timer_timeout():
+	shoot_laser()
+	
+func shoot_laser():
+	var lazer_scene = load('res://scenes/lazer.tscn') as PackedScene
+	var lazer = lazer_scene.instantiate() as Lazer
+	lazer.global_position = self.position	
+	if direction == 'left':
+		lazer.direction = Vector2.LEFT
+	else:
+		lazer.global_position.x += 20
+	
+	get_tree().root.add_child(lazer)	
