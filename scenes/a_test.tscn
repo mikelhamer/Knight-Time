@@ -664,7 +664,7 @@ distance = 29.0
 
 [node name="Player" parent="." instance=ExtResource("1_gy1bs")]
 z_index = 5
-position = Vector2(1607, 41)
+position = Vector2(1479, 42)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -690,4 +690,4 @@ position = Vector2(359, 19)
 move = true
 
 [node name="slime" parent="." instance=ExtResource("6_qtxtw")]
-position = Vector2(1652, 29)
+position = Vector2(1608, 29)

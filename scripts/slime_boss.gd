@@ -1,8 +1,11 @@
 extends Area2D
 
-const SPEED = 50.0
 const MAX_HITS = 3
+
+var speed = 50.0
 var hits = 0
+var lazer_time_seconds = 3.2
+var lazer_speed = 110
 
 @export var move = false;
 
@@ -14,12 +17,13 @@ var hits = 0
 @onready var animation_player = $AnimationPlayer
 @onready var die_sound = $DieSound
 @onready var i_frame_timer = $IFrameTimer
+@onready var lazer_timer = $LazerTimer
 
-var direction = 'right'
+var direction = 'left'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	lazer_timer.wait_time = lazer_time_seconds
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,17 +41,13 @@ func _process(delta):
 		direction = 'left';
 		
 	if direction == 'left':
-		position.x -= SPEED * delta
-		scale = Vector2(2.36, 2.36)
-		# stupid hack due to flipping via negative x scale
-		ray_cast_right.rotation_degrees = 180
-		#animated_sprite.flip_h = true	
+		position.x -= speed * delta
+		#scale = Vector2(2.36, 2.36)
+		animated_sprite.flip_h = true	
 	elif direction == 'right':
-		position.x += SPEED * delta
-		scale = Vector2(-2.36, 2.36)
-		# stupid hack due to flipping via negative x scale
-		ray_cast_right.rotation_degrees = -180
-		#animated_sprite.flip_h = false
+		position.x += speed * delta
+		#scale = Vector2(-2.36, 2.36)
+		animated_sprite.flip_h = false
 
 func _on_weak_spot_body_entered(body):
 	if i_frame_timer.time_left:
@@ -63,6 +63,10 @@ func _on_weak_spot_body_entered(body):
 		print("death")
 		animation_player.play('die')	
 	else:
+		speed += 20
+		lazer_time_seconds -= .7
+		lazer_timer.wait_time = lazer_time_seconds
+		lazer_speed += 20
 		die_sound.play()
 
 func _on_killzone_body_entered(body):
@@ -90,6 +94,7 @@ func shoot_laser():
 	var lazer_scene = load('res://scenes/lazer.tscn') as PackedScene
 	var lazer = lazer_scene.instantiate() as Lazer
 	lazer.global_position = self.position	
+	lazer.speed = lazer_speed
 	if direction == 'left':
 		lazer.direction = Vector2.LEFT
 	else:

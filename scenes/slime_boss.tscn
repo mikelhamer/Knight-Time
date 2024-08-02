@@ -76,7 +76,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6p4w"]
-size = Vector2(12, 8)
+size = Vector2(8.47458, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leppr"]
 size = Vector2(4, 4)
@@ -178,7 +178,6 @@ autoplay = "yum"
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("3_fwjrf")]
-visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 7)
@@ -189,8 +188,8 @@ debug_color = Color(0.996754, 0, 0.180426, 0.42)
 target_position = Vector2(-9.74576, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(1.27119, 0)
-target_position = Vector2(11.4407, 0)
+position = Vector2(2.08165e-12, 2.08165e-12)
+target_position = Vector2(9.74576, -2.08165e-12)
 
 [node name="WeakSpot" type="Area2D" parent="."]
 visible = false
@@ -221,11 +220,10 @@ stream = ExtResource("5_sgpuq")
 pitch_scale = 0.43
 bus = &"SFX"
 
-[node name="LaserTimer" type="Timer" parent="."]
-wait_time = 3.2
+[node name="LazerTimer" type="Timer" parent="."]
 autostart = true
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="WeakSpot" to="." method="_on_weak_spot_body_entered"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
-[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="LazerTimer" to="." method="_on_laser_timer_timeout"]
