@@ -15,7 +15,7 @@ var hits = 0
 @onready var die_sound = $DieSound
 @onready var i_frame_timer = $IFrameTimer
 
-var direction = 'left'
+var direction = 'right'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,18 +29,24 @@ func _process(delta):
 		return
 	
 	if ray_cast_left.is_colliding():
-		direction = 'right';		
+		print('collide left')
+		direction = 'right';	
 		
 	elif ray_cast_right.is_colliding():
+		print('collide right')		
 		direction = 'left';
 		
 	if direction == 'left':
 		position.x -= SPEED * delta
-		scale = Vector2(2.36, 2.36)	
+		scale = Vector2(2.36, 2.36)
+		# stupid hack due to flipping via negative x scale
+		ray_cast_right.rotation_degrees = 180
 		#animated_sprite.flip_h = true	
 	elif direction == 'right':
 		position.x += SPEED * delta
 		scale = Vector2(-2.36, 2.36)
+		# stupid hack due to flipping via negative x scale
+		ray_cast_right.rotation_degrees = -180
 		#animated_sprite.flip_h = false
 
 func _on_weak_spot_body_entered(body):
@@ -87,6 +93,7 @@ func shoot_laser():
 	if direction == 'left':
 		lazer.direction = Vector2.LEFT
 	else:
+		# stupid hack due to flipping using negative scale
 		lazer.global_position.x += 20
 	
 	get_tree().root.add_child(lazer)	

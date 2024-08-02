@@ -189,7 +189,8 @@ debug_color = Color(0.996754, 0, 0.180426, 0.42)
 target_position = Vector2(-9.74576, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(8.8983, 0)
+position = Vector2(1.27119, 0)
+target_position = Vector2(11.4407, 0)
 
 [node name="WeakSpot" type="Area2D" parent="."]
 visible = false
