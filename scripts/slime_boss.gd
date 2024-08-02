@@ -36,10 +36,10 @@ func _process(delta):
 		
 	if direction == 'left':
 		position.x -= SPEED * delta
-		animated_sprite.flip_h = true;		
+		scale = Vector2(2.36, 2.36)		
 	elif direction == 'right':
 		position.x += SPEED * delta
-		animated_sprite.flip_h = false;
+		scale = Vector2(-2.36, 2.36)
 
 func _on_weak_spot_body_entered(body):
 	if i_frame_timer.time_left:

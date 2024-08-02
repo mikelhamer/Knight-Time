@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://b2hva3km3ay5r"]
+[gd_scene load_steps=21 format=3 uid="uid://b2hva3km3ay5r"]
 
 [ext_resource type="Script" path="res://scripts/slime_boss.gd" id="1_kikg1"]
 [ext_resource type="Texture2D" uid="uid://caj5csky7ulr3" path="res://assets/sprites/slime_green.png" id="2_mx6i3"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="3_fwjrf"]
 [ext_resource type="AudioStream" uid="uid://bwcvl007ya41h" path="res://assets/sounds/jump.wav" id="4_qxp7a"]
 [ext_resource type="AudioStream" uid="uid://b58svrhsuaub7" path="res://assets/sounds/explosion.wav" id="5_sgpuq"]
+[ext_resource type="Script" path="res://scripts/lazer_attack.gd" id="6_o8kgv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvxd0"]
 atlas = ExtResource("2_mx6i3")
@@ -90,7 +91,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -104,7 +105,7 @@ tracks/1/path = NodePath("DeathSound")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -167,17 +168,17 @@ _data = {
 scale = Vector2(2.36, 2.36)
 collision_mask = 2
 script = ExtResource("1_kikg1")
-move = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.999996, 0.956224, 0.94895, 1)
+modulate = Color(1, 0.533333, 0, 1)
+self_modulate = Color(0.9705, 1, 0.41, 1)
 sprite_frames = SubResource("SpriteFrames_ijdmb")
-animation = &"die"
+animation = &"yum"
 autoplay = "yum"
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("3_fwjrf")]
+visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 7)
@@ -185,12 +186,13 @@ shape = SubResource("RectangleShape2D_j6p4w")
 debug_color = Color(0.996754, 0, 0.180426, 0.42)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-9, 0)
+target_position = Vector2(-9.74576, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(8, 0)
+target_position = Vector2(8.8983, 0)
 
 [node name="WeakSpot" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 priority = 1
 
@@ -218,6 +220,14 @@ stream = ExtResource("5_sgpuq")
 pitch_scale = 0.43
 bus = &"SFX"
 
+[node name="LazerAttack" type="Node2D" parent="."]
+script = ExtResource("6_o8kgv")
+
+[node name="Timer" type="Timer" parent="LazerAttack"]
+wait_time = 3.0
+autostart = true
+
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="WeakSpot" to="." method="_on_weak_spot_body_entered"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
+[connection signal="timeout" from="LazerAttack/Timer" to="LazerAttack" method="_on_timer_timeout"]

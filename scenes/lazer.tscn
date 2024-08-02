@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://c52npb1t64oes"]
+
+[ext_resource type="Script" path="res://scripts/lazer.gd" id="1_52v87"]
+[ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="2_ocowc"]
+
+[sub_resource type="Animation" id="Animation_wngdx"]
+resource_name = "shoot"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-5.9322, 5.9322), Vector2(-150, 5.932)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(0.5, 2)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32rco"]
+_data = {
+"shoot": SubResource("Animation_wngdx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82o5w"]
+size = Vector2(62, 1)
+
+[node name="Lazer" type="Area2D"]
+position = Vector2(-5.9322, 5.9322)
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_52v87")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 2.0
+offset_right = 70.0
+offset_bottom = 3.0
+rotation = -3.14159
+color = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_32rco")
+}
+
+[node name="Killzone" parent="." instance=ExtResource("2_ocowc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-35, 1.534)
+shape = SubResource("RectangleShape2D_82o5w")
