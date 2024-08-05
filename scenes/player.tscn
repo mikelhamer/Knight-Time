@@ -301,7 +301,8 @@ bus = &"SFX"
 
 [node name="swim_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_y5nc0")
-pitch_scale = 2.98
+pitch_scale = 1.68
+bus = &"SFX"
 
 [node name="CoyoteRay" type="RayCast2D" parent="."]
 target_position = Vector2(0, 17)
@@ -325,6 +326,9 @@ collision_mask = 4
 position = Vector2(-1, 10)
 shape = SubResource("RectangleShape2D_m6ngi")
 debug_color = Color(0.0819508, 0.52388, 1, 0.42)
+
+[node name="SwimFloatTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="body_entered" from="WaterDetector" to="." method="_on_water_detector_body_entered"]

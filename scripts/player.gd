@@ -14,6 +14,7 @@ class_name Player
 @onready var coyote_timer = $CoyoteTimer
 @onready var jump_sound = $jump_sound
 @onready var swim_sound = $swim_sound
+@onready var swim_float_timer = $SwimFloatTimer
 # Calculated jump properties
 # https://www.youtube.com/watch?v=FvFx1R3p-aw
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_seconds_to_peak) * -1.0
@@ -26,6 +27,7 @@ var was_on_floor := false
 var input_direction := 0
 var bouncing = false
 var in_water = false
+var was_swim_up := false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -45,8 +47,6 @@ func _physics_process(delta):
 	
 	# Apply gravity
 	velocity.y += get_gravity() * delta
-	if in_water:
-		velocity.y *= .8
 	
 	# Handle horizontal movement
 	input_direction = get_input_direction()
@@ -59,6 +59,12 @@ func _physics_process(delta):
 	# Check if entering coyote time
 	if just_ran_off_floor():
 		coyote_timer.start()	
+		
+	# Check if max height of swim up reached
+	if just_reach_swim_up_height():
+		swim_float_timer.start()
+		
+		
 	
 	# Jump
 	if jump_just_pressed() and can_jump():
@@ -70,6 +76,9 @@ func _physics_process(delta):
 
 	# Update floor check
 	was_on_floor = is_on_floor()
+	
+	# Update water swim up check
+	was_swim_up = in_water and velocity.y < 0
 
 	# Flip sprite to match input direction
 	flip_sprite_for_input_direction()
@@ -82,11 +91,19 @@ func _physics_process(delta):
 
 func get_gravity() -> float:
 	var jumping = (velocity.y < 0.0 and Input.is_action_pressed("jump")) and !bouncing
+	if in_water:
+		if swim_float_timer.time_left:
+			print("float!")
+			return fall_gravity * .1
+		else:
+			print("water grav")
+			return fall_gravity * .5 
+		
 	return jump_gravity if jumping else fall_gravity
 
 func jump_just_pressed():
 	return Input.is_action_just_pressed("jump")
-
+	
 func can_jump() -> bool:
 	if in_water:
 		return true
@@ -95,6 +112,8 @@ func can_jump() -> bool:
 
 func jump():
 	velocity.y = jump_velocity
+	if in_water:
+		velocity.y = jump_velocity + 20
 	if in_water:
 		swim_sound.play()
 	else:
@@ -120,6 +139,9 @@ func flip_sprite_for_input_direction():
 
 func just_ran_off_floor():
 	return was_on_floor and !is_on_floor()
+	
+func just_reach_swim_up_height():
+	return was_swim_up and (in_water && velocity.y >= 0)
 
 func die():
 	dead = true
@@ -143,9 +165,7 @@ func update_animation():
 
 func _on_water_detector_body_entered(body):
 	in_water = true
-	print("enter water")
 
 
 func _on_water_detector_body_exited(body):
 	in_water = false
-	print("exit water")
