@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c52npb1t64oes"]
+[gd_scene load_steps=8 format=3 uid="uid://c52npb1t64oes"]
 
 [ext_resource type="Script" path="res://scripts/lazer.gd" id="1_52v87"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="2_ocowc"]
@@ -45,9 +45,37 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.2, 1.45, 1.7, 1.95, 2.2, 2.45, 2.7, 2.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.9571, 0.759014, 0, 1), Color(1, 0, 0, 1), Color(0.956863, 0.760784, 0, 1), Color(1, 0, 0, 1), Color(0.9571, 0.759014, 0, 1), Color(1, 0, 0, 1), Color(0.956863, 0.760784, 0, 1), Color(1, 0, 0, 1), Color(0.9571, 0.759014, 0, 1), Color(1, 0, 0, 1), Color(0.956863, 0.760784, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vgcyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_32rco"]
 _data = {
+"RESET": SubResource("Animation_vgcyl"),
 "shoot": SubResource("Animation_wngdx")
 }
 
@@ -56,7 +84,7 @@ size = Vector2(62, 1)
 
 [node name="Lazer" type="Area2D"]
 position = Vector2(-5.9322, 5.9322)
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(0.3, 2.3)
 script = ExtResource("1_52v87")
 
 [node name="ColorRect" type="ColorRect" parent="."]

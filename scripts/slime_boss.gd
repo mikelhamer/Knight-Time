@@ -5,7 +5,7 @@ const MAX_HITS = 3
 var speed = 50.0
 var hits = 0
 var lazer_time_seconds = 3.2
-var lazer_speed = 110
+var lazer_speed = 130
 
 @export var move = false;
 
@@ -18,6 +18,7 @@ var lazer_speed = 110
 @onready var die_sound = $DieSound
 @onready var i_frame_timer = $IFrameTimer
 @onready var lazer_timer = $LazerTimer
+@onready var lazer_origin = $LazerOrigin
 
 var direction = 'left'
 
@@ -33,11 +34,9 @@ func _process(delta):
 		return
 	
 	if ray_cast_left.is_colliding():
-		print('collide left')
 		direction = 'right';	
 		
 	elif ray_cast_right.is_colliding():
-		print('collide right')		
 		direction = 'left';
 		
 	if direction == 'left':
@@ -73,11 +72,9 @@ func _on_killzone_body_entered(body):
 	weak_spot.monitoring = false
 	
 func play_die():
-	print("die")
 	animated_sprite.play('die')	
 
 func play_yum():
-	print("yum")
 	animated_sprite.play('yum')
 	
 
@@ -91,14 +88,15 @@ func _on_laser_timer_timeout():
 		shoot_laser()
 	
 func shoot_laser():
+	animation_player.play("lazer")
 	var lazer_scene = load('res://scenes/lazer.tscn') as PackedScene
 	var lazer = lazer_scene.instantiate() as Lazer
-	lazer.global_position = self.position	
+	lazer.global_position = lazer_origin.global_position	
 	lazer.speed = lazer_speed
 	if direction == 'left':
 		lazer.direction = Vector2.LEFT
 	else:
 		# stupid hack due to flipping using negative scale
-		lazer.global_position.x += 20
+		lazer.global_position.x += 25
 	
-	get_tree().root.add_child(lazer)	
+	get_tree().root.add_child(lazer)
