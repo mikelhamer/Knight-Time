@@ -8,6 +8,7 @@ class_name Player
 @export var jump_seconds_to_peak := 0.4
 @export var jump_seconds_to_descent := .3
 @export var coyote_seconds := .1
+@export var water_gravity = 5
 # Child Nodes
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
@@ -28,6 +29,7 @@ var input_direction := 0
 var bouncing = false
 var in_water = false
 var was_swim_up := false
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -91,15 +93,11 @@ func _physics_process(delta):
 
 func get_gravity() -> float:
 	var jumping = (velocity.y < 0.0 and Input.is_action_pressed("jump")) and !bouncing
+	var gravity = jump_gravity if jumping else fall_gravity
 	if in_water:
-		if swim_float_timer.time_left:
-			print("float!")
-			return fall_gravity * .1
-		else:
-			print("water grav")
-			return fall_gravity * .5 
-		
-	return jump_gravity if jumping else fall_gravity
+		print("water grav")
+		gravity *= .1
+	return gravity
 
 func jump_just_pressed():
 	return Input.is_action_just_pressed("jump")
@@ -111,12 +109,16 @@ func can_jump() -> bool:
 			(is_on_floor() or !coyote_timer.is_stopped())
 
 func jump():
-	velocity.y = jump_velocity
 	if in_water:
-		velocity.y = jump_velocity + 20
-	if in_water:
+		print("water jump!")
+		if velocity.y < 0:
+			velocity.y = -90
+		else:
+			velocity.y = -60
+
 		swim_sound.play()
 	else:
+		velocity.y = jump_velocity
 		jump_sound.play()
 	
 func bounce():
@@ -164,8 +166,10 @@ func update_animation():
 
 
 func _on_water_detector_body_entered(body):
+	velocity.y = 20
 	in_water = true
 
 
 func _on_water_detector_body_exited(body):
+	velocity.y= -100
 	in_water = false
