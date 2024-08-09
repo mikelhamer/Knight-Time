@@ -49,6 +49,10 @@ func _physics_process(delta):
 	
 	# Apply gravity
 	velocity.y += get_gravity() * delta
+	if in_water:
+		# otherwise velocity just keeps going and the player falls faster the 
+		# longer they are sinking in water
+		velocity.y = min(velocity.y, 90)
 	
 	# Handle horizontal movement
 	input_direction = get_input_direction()
