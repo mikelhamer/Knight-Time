@@ -1,7 +1,6 @@
 extends Area2D
 
-const SPEED = 40.0
-
+@export var speed = 40.0
 @export var move = false;
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -9,13 +8,13 @@ const SPEED = 40.0
 @onready var ray_cast_right = $RayCastRight
 @onready var killzone = $Killzone
 @onready var animation_player = $AnimationPlayer
+@onready var weak_spot = $WeakSpot
 
 var direction = 'left'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,9 +29,18 @@ func _process(delta):
 		direction = 'left';
 		
 	if direction == 'left':
-		position.x -= SPEED * delta
+		position.x -= speed * delta
 		animated_sprite.flip_h = true;		
 	elif direction == 'right':
-		position.x += SPEED * delta
+		position.x += speed * delta
 		animated_sprite.flip_h = false;
 
+func _on_weak_spot_body_entered(body):
+	killzone.monitoring = false
+	move = false
+	body.bounce()
+	animated_sprite.play("die")
+	animation_player.play('die')
+
+func _on_killzone_body_entered(body):
+	weak_spot.monitoring = false

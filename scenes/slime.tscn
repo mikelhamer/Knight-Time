@@ -75,7 +75,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6p4w"]
-size = Vector2(12, 8)
+size = Vector2(10, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leppr"]
 size = Vector2(4, 4)
@@ -115,8 +115,10 @@ _data = {
 }
 
 [node name="slime" type="Area2D"]
-collision_mask = 2
+collision_layer = 256
+collision_mask = 514
 script = ExtResource("1_ky2rp")
+speed = 60.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ijdmb")
@@ -127,6 +129,7 @@ frame_progress = 0.709539
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_q7cem")]
+collision_layer = 256
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 7)
@@ -135,11 +138,14 @@ debug_color = Color(0.996754, 0, 0.180426, 0.42)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-9, 0)
+collision_mask = 513
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)
+collision_mask = 513
 
 [node name="WeakSpot" type="Area2D" parent="."]
+collision_layer = 256
 collision_mask = 2
 priority = 1
 

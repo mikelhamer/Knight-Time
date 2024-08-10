@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwpfcyyvakuko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bgrj"]
+size = Vector2(16, 37)
+
+[node name="SlimeStopper" type="StaticBody2D"]
+collision_layer = 512
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4bgrj")
