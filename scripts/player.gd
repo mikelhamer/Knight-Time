@@ -43,7 +43,10 @@ func _physics_process(delta):
 		return
 	if dead:
 		velocity.x = 0
-		velocity.y = 300
+		if in_water:
+			velocity.y = 30
+		else:
+			velocity.y = 300
 		move_and_slide()
 		return
 	
