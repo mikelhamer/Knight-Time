@@ -102,8 +102,7 @@ func get_gravity() -> float:
 	var jumping = (velocity.y < 0.0 and Input.is_action_pressed("jump")) and !bouncing
 	var gravity = jump_gravity if jumping else fall_gravity
 	if in_water:
-		print("water grav")
-		gravity *= .1
+		gravity = fall_gravity * .1
 	return gravity
 
 func jump_just_pressed():
@@ -117,7 +116,6 @@ func can_jump() -> bool:
 
 func jump():
 	if in_water:
-		print("water jump!")
 		if velocity.y < 0:
 			velocity.y = -90
 		else:
