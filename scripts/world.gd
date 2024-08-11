@@ -5,6 +5,7 @@ extends Node2D
 var levels := [
 	"res://scenes/level_1.tscn",
 	"res://scenes/level_2.tscn",
+	"res://scenes/level_3.tscn",
 ]
 var current_level_index := 0
 var current_level: Level

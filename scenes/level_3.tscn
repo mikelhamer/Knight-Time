@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cw6u646dlcybp"]
+[gd_scene load_steps=19 format=3 uid="uid://cw6u646dlcybp"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_p4qig"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_1a3da"]
@@ -676,82 +676,6 @@ pattern_1 = SubResource("TileMapPattern_l3ock")
 pattern_2 = SubResource("TileMapPattern_amgr0")
 pattern_3 = SubResource("TileMapPattern_ej72y")
 
-[sub_resource type="Animation" id="Animation_2ipiq"]
-resource_name = "move"
-length = 1.8
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(365, -530), Vector2(273, -530)]
-}
-
-[sub_resource type="Animation" id="Animation_uatrj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(365, -530)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_epi25"]
-_data = {
-"RESET": SubResource("Animation_uatrj"),
-"move": SubResource("Animation_2ipiq")
-}
-
-[sub_resource type="Animation" id="Animation_calq8"]
-resource_name = "move"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(194, -429), Vector2(-1, -429)]
-}
-
-[sub_resource type="Animation" id="Animation_mmr81"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(367, -527)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_adsuw"]
-_data = {
-"RESET": SubResource("Animation_mmr81"),
-"move": SubResource("Animation_calq8")
-}
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f377p"]
 distance = -177.0
 
@@ -820,43 +744,38 @@ position = Vector2(216, -511)
 [node name="Slimes" type="Node" parent="."]
 
 [node name="SlimeBall" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(-36, -429)
-
-[node name="SlimeBall8" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(-36, -429)
+position = Vector2(-36, -334)
+move_vertical = true
 
 [node name="SlimeBall4" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(42, -369)
+position = Vector2(63, -439)
+move_vertical = true
 
 [node name="SlimeBall2" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(-110, -369)
+position = Vector2(-110, -339)
+move_horizontal = true
 
 [node name="SlimeBall5" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(230, -429)
+position = Vector2(230, -430)
+move_vertical = true
 
 [node name="SlimeBall6" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(308, -369)
+position = Vector2(324, -373)
+
+[node name="SlimeBall8" parent="Slimes" instance=ExtResource("5_uvvb5")]
+position = Vector2(-99, -423)
 
 [node name="SlimeBall7" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(156, -369)
+position = Vector2(155, -334)
+move_vertical = true
 
 [node name="SlimeBall3" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(365, -530)
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Slimes/SlimeBall3"]
-libraries = {
-"": SubResource("AnimationLibrary_epi25")
-}
-autoplay = "move"
+position = Vector2(366, -505)
+move_horizontal = true
 
 [node name="SlimeBall9" parent="Slimes" instance=ExtResource("5_uvvb5")]
-position = Vector2(367, -527)
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Slimes/SlimeBall9"]
-libraries = {
-"": SubResource("AnimationLibrary_adsuw")
-}
-autoplay = "move"
+position = Vector2(361, -439)
+move_horizontal = true
 
 [node name="slime" parent="Slimes" instance=ExtResource("6_wmks6")]
 position = Vector2(216, -581)
