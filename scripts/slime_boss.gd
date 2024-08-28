@@ -56,11 +56,10 @@ func _on_weak_spot_body_entered(body):
 	body.bounce_high()
 	animation_player.play("hit")
 	hits += 1
-	print(hits)
 	i_frame_timer.start()
 	if hits >= MAX_HITS:
-		print("death")
-		animation_player.play('die')	
+		animation_player.play('die')
+		%Blocker.queue_free()
 	else:
 		speed += 20
 		lazer_time_seconds -= .7

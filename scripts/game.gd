@@ -1,7 +1,7 @@
 extends Node
 
-signal died
 signal coins_updated(total_coins)
+signal died
 
 var level_coins = 0
 var total_coins = 0

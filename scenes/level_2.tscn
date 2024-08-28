@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://80sylcvbgkq"]
+[gd_scene load_steps=20 format=3 uid="uid://80sylcvbgkq"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_8eij6"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="3_lfgd6"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bt3peq2o2m624" path="res://scenes/slime_purple.tscn" id="7_jmqrs"]
 [ext_resource type="PackedScene" uid="uid://cvhkt7ynupxkt" path="res://scenes/coin_gate.tscn" id="9_8h1wk"]
 [ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://scenes/slime.tscn" id="9_np561"]
+[ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://scenes/checkpoint.tscn" id="11_v8h8o"]
+[ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://scenes/player_start.tscn" id="12_d5lfn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 0, 0, 65537, 0, 1, 2, 0, 0, 65538, 0, 1)
@@ -448,7 +450,7 @@ layer_1/tile_data = PackedInt32Array(1376232, 196608, 0, 1441768, 196608, 0, 150
 
 [node name="Player" parent="." instance=ExtResource("4_joxg3")]
 z_index = 5
-position = Vector2(-327, 386)
+position = Vector2(-328, 303)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -510,7 +512,7 @@ position = Vector2(641, -133)
 position = Vector2(725, -165)
 
 [node name="coin42" parent="Coins" instance=ExtResource("6_4j4ce")]
-position = Vector2(775, -198)
+position = Vector2(806, -209)
 
 [node name="coin18" parent="Coins" instance=ExtResource("6_4j4ce")]
 position = Vector2(838, -196)
@@ -639,6 +641,15 @@ position = Vector2(1315, -31)
 [node name="slime_purple2" parent="Slimes" instance=ExtResource("7_jmqrs")]
 position = Vector2(911, -66)
 
+[node name="slime_purple3" parent="Slimes" instance=ExtResource("7_jmqrs")]
+position = Vector2(1111, -82)
+
+[node name="slime_purple6" parent="Slimes" instance=ExtResource("7_jmqrs")]
+position = Vector2(1143, -257)
+
+[node name="slime_purple4" parent="Slimes" instance=ExtResource("7_jmqrs")]
+position = Vector2(1111, 5)
+
 [node name="CoinGate" parent="." instance=ExtResource("9_8h1wk")]
 position = Vector2(1245, 377)
 coins_required = 45
@@ -658,3 +669,11 @@ collision_mask = 2
 position = Vector2(7, 0)
 shape = SubResource("RectangleShape2D_6f4v2")
 debug_color = Color(0.887733, 0.279294, 0.452642, 1)
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("11_v8h8o")]
+position = Vector2(823, -194)
+
+[node name="PlayerStart" parent="." instance=ExtResource("12_d5lfn")]
+position = Vector2(-328, 389)

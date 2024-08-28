@@ -17,7 +17,6 @@ func _process(delta):
 	
 	if move_horizontal:
 		if ray_cast_left.is_colliding():
-			print("eeee")
 			horizontal_direction = 'right'
 		elif ray_cast_right.is_colliding():
 			horizontal_direction = 'left'

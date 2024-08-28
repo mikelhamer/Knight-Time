@@ -1,13 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8iu55ij1jiyr"]
+[gd_scene load_steps=19 format=3 uid="uid://c8iu55ij1jiyr"]
 
 [ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://scenes/player.tscn" id="1_am3aq"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_quvsu"]
+[ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://scenes/player_start.tscn" id="2_87dsb"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_r8j8h"]
 [ext_resource type="PackedScene" uid="uid://bchu1xqsxkggn" path="res://scenes/platform.tscn" id="3_h4f6c"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="4_a7h1a"]
 [ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://scenes/slime.tscn" id="5_oprod"]
 [ext_resource type="PackedScene" uid="uid://d2tf7xvwoh2rb" path="res://scenes/coin.tscn" id="6_lcrsb"]
 [ext_resource type="PackedScene" uid="uid://dyhbkr7n0wajv" path="res://scenes/platform_move_on_touch.tscn" id="10_aep1l"]
+[ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://scenes/checkpoint.tscn" id="10_cqoqo"]
 [ext_resource type="PackedScene" uid="uid://cvhkt7ynupxkt" path="res://scenes/coin_gate.tscn" id="11_7q0k3"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
@@ -437,6 +439,9 @@ size = Vector2(10, 14)
 position = Vector2(-255, -349)
 script = ExtResource("1_quvsu")
 
+[node name="PlayerStart" parent="." instance=ExtResource("2_87dsb")]
+position = Vector2(627, 374)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ta5rg")
 format = 2
@@ -447,7 +452,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("1_am3aq")]
 z_index = 5
-position = Vector2(82, 385)
+position = Vector2(616, 387)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -461,7 +466,7 @@ position = Vector2(152, 56)
 position = Vector2(265, 14)
 
 [node name="coin24" parent="Coins" instance=ExtResource("6_lcrsb")]
-position = Vector2(377, 23)
+position = Vector2(281, 45)
 
 [node name="coin25" parent="Coins" instance=ExtResource("6_lcrsb")]
 position = Vector2(424, 71)
@@ -491,7 +496,7 @@ position = Vector2(-96, -4)
 position = Vector2(58, -55)
 
 [node name="coin15" parent="Coins" instance=ExtResource("6_lcrsb")]
-position = Vector2(321, 42)
+position = Vector2(362, 44)
 
 [node name="coin16" parent="Coins" instance=ExtResource("6_lcrsb")]
 position = Vector2(297, 88)
@@ -561,7 +566,7 @@ position = Vector2(456, 136)
 [node name="Slimes" type="Node" parent="."]
 
 [node name="slime" parent="Slimes" instance=ExtResource("5_oprod")]
-position = Vector2(345, 39)
+position = Vector2(338, 39)
 move = true
 
 [node name="slime2" parent="Slimes" instance=ExtResource("5_oprod")]
@@ -594,3 +599,8 @@ collision_mask = 2
 position = Vector2(1147, 330)
 shape = SubResource("RectangleShape2D_6f4v2")
 debug_color = Color(0.466378, 0.456463, 0.96727, 0.42)
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_cqoqo")]
+position = Vector2(393, 27)

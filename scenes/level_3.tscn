@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cw6u646dlcybp"]
+[gd_scene load_steps=21 format=3 uid="uid://cw6u646dlcybp"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_p4qig"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_1a3da"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://scenes/slime.tscn" id="6_wmks6"]
 [ext_resource type="PackedScene" uid="uid://cvhkt7ynupxkt" path="res://scenes/coin_gate.tscn" id="9_b1ys4"]
 [ext_resource type="PackedScene" uid="uid://bwpfcyyvakuko" path="res://scenes/slime_stopper.tscn" id="9_eillq"]
+[ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://scenes/checkpoint.tscn" id="10_2yodw"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="10_gq1r5"]
+[ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://scenes/player_start.tscn" id="11_pvrj8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 0, 0, 65537, 0, 1, 2, 0, 0, 65538, 0, 1)
@@ -702,7 +704,7 @@ layer_2/tile_data = PackedInt32Array(-196616, 393216, 3, -131080, 393216, 4, -19
 
 [node name="Player" parent="." instance=ExtResource("3_3njkn")]
 z_index = 5
-position = Vector2(824, 138)
+position = Vector2(-300, -208)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -815,19 +817,19 @@ position = Vector2(856, -579)
 position = Vector2(742, -530)
 
 [node name="coin80" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(684, -522)
+position = Vector2(668, -511)
 
 [node name="coin82" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(666, -541)
+position = Vector2(604, -525)
 
 [node name="coin83" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(642, -549)
+position = Vector2(642, -538)
 
 [node name="coin84" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(619, -549)
+position = Vector2(619, -538)
 
 [node name="coin86" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(591, -538)
+position = Vector2(591, -514)
 
 [node name="coin89" parent="Coins" instance=ExtResource("4_l38nj")]
 position = Vector2(455, -562)
@@ -851,13 +853,13 @@ position = Vector2(63, -377)
 position = Vector2(-101, -402)
 
 [node name="coin87" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(575, -519)
+position = Vector2(654, -525)
 
 [node name="coin88" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(567, -500)
+position = Vector2(583, -500)
 
 [node name="coin81" parent="Coins" instance=ExtResource("4_l38nj")]
-position = Vector2(695, -497)
+position = Vector2(676, -497)
 
 [node name="coin24" parent="Coins" instance=ExtResource("4_l38nj")]
 position = Vector2(1109, -238)
@@ -1310,3 +1312,11 @@ position = Vector2(775, 75)
 
 [node name="SlimeStopper4" parent="." instance=ExtResource("9_eillq")]
 position = Vector2(1111, 281)
+
+[node name="PlayerStart" parent="." instance=ExtResource("11_pvrj8")]
+position = Vector2(-352, -205)
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_2yodw")]
+position = Vector2(583, -226)
