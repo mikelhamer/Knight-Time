@@ -332,6 +332,11 @@ debug_color = Color(0.0819508, 0.52388, 1, 0.42)
 [node name="SwimFloatTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DeathTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="body_entered" from="WaterDetector" to="." method="_on_water_detector_body_entered"]
 [connection signal="body_exited" from="WaterDetector" to="." method="_on_water_detector_body_exited"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

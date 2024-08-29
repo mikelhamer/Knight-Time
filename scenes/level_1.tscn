@@ -440,7 +440,7 @@ position = Vector2(-255, -349)
 script = ExtResource("1_quvsu")
 
 [node name="PlayerStart" parent="." instance=ExtResource("2_87dsb")]
-position = Vector2(627, 374)
+position = Vector2(990, 323)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ta5rg")
@@ -452,7 +452,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("1_am3aq")]
 z_index = 5
-position = Vector2(616, 387)
+position = Vector2(662, 372)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -481,7 +481,10 @@ position = Vector2(602, 17)
 position = Vector2(681, -8)
 
 [node name="coin29" parent="Coins" instance=ExtResource("6_lcrsb")]
-position = Vector2(761, -23)
+position = Vector2(713, -23)
+
+[node name="coin34" parent="Coins" instance=ExtResource("6_lcrsb")]
+position = Vector2(795, -22)
 
 [node name="coin30" parent="Coins" instance=ExtResource("6_lcrsb")]
 position = Vector2(57, 42)
@@ -581,6 +584,9 @@ position = Vector2(602, 40)
 [node name="slime5" parent="Slimes" instance=ExtResource("5_oprod")]
 position = Vector2(634, 24)
 
+[node name="slime6" parent="Slimes" instance=ExtResource("5_oprod")]
+position = Vector2(824, -25)
+
 [node name="CoinGate" parent="." instance=ExtResource("11_7q0k3")]
 position = Vector2(1095, 279)
 coins_required = 20
@@ -603,4 +609,4 @@ debug_color = Color(0.466378, 0.456463, 0.96727, 0.42)
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_cqoqo")]
-position = Vector2(393, 27)
+position = Vector2(768, -22)

@@ -30,7 +30,6 @@ var bouncing = false
 var in_water = false
 var was_swim_up := false
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -72,8 +71,6 @@ func _physics_process(delta):
 	# Check if max height of swim up reached
 	if just_reach_swim_up_height():
 		swim_float_timer.start()
-		
-		
 	
 	# Jump
 	if jump_just_pressed() and can_jump():
@@ -153,6 +150,11 @@ func just_reach_swim_up_height():
 func die():
 	dead = true
 	animation_player.play('die')
+	%DeathTimer.start()
+
+func _on_death_timer_timeout():
+	Game.subtract_level_coins()
+	Game.died.emit()
 	
 func stop():
 	stopped = true

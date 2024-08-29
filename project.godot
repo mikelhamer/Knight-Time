@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Game="*res://scripts/game.gd"
 MusicPlayer="*res://scenes/music_player.tscn"
+SaveService="*res://save_service.gd"
 
 [input]
 

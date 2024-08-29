@@ -38,6 +38,7 @@ func load_level(index: int):
 
 func _on_checkpoint_reached(checkpoint: Node2D):
 	current_checkpoint = checkpoint
+	SaveService.save()
 	
 
 func _on_level_completed():
