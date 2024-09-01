@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://clo4cwh0nmfa1"]
 
-[ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://scenes/player.tscn" id="1_gy1bs"]
+[ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://player/player.tscn" id="1_gy1bs"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_4seg8"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="3_ivce3"]
 [ext_resource type="PackedScene" uid="uid://dyhbkr7n0wajv" path="res://scenes/platform_move_on_touch.tscn" id="4_tj8kd"]
-[ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://scenes/slime.tscn" id="5_2him2"]
-[ext_resource type="PackedScene" uid="uid://b2hva3km3ay5r" path="res://scenes/slime_boss.tscn" id="6_qtxtw"]
+[ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://slimes/green_slime/slime.tscn" id="5_2him2"]
+[ext_resource type="PackedScene" uid="uid://b2hva3km3ay5r" path="res://slimes/slime_boss/slime_boss.tscn" id="6_qtxtw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_verv8"]
 texture = ExtResource("2_4seg8")

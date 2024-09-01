@@ -1,17 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://80sylcvbgkq"]
+[gd_scene load_steps=19 format=3 uid="uid://80sylcvbgkq"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_8eij6"]
-[ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="3_lfgd6"]
-[ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://scenes/player.tscn" id="4_joxg3"]
-[ext_resource type="PackedScene" uid="uid://c1lbnuh0kk2f8" path="res://scenes/falling_block.tscn" id="5_15xx1"]
-[ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="5_enqiv"]
-[ext_resource type="PackedScene" uid="uid://bchu1xqsxkggn" path="res://scenes/platform.tscn" id="6_1egyj"]
-[ext_resource type="PackedScene" uid="uid://d2tf7xvwoh2rb" path="res://scenes/coin.tscn" id="6_4j4ce"]
-[ext_resource type="PackedScene" uid="uid://bt3peq2o2m624" path="res://scenes/slime_purple.tscn" id="7_jmqrs"]
-[ext_resource type="PackedScene" uid="uid://cvhkt7ynupxkt" path="res://scenes/coin_gate.tscn" id="9_8h1wk"]
-[ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://scenes/slime.tscn" id="9_np561"]
-[ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://scenes/checkpoint.tscn" id="11_v8h8o"]
-[ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://scenes/player_start.tscn" id="12_d5lfn"]
+[ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="1_omq5n"]
+[ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://player/player.tscn" id="2_r4np7"]
+[ext_resource type="PackedScene" uid="uid://d2tf7xvwoh2rb" path="res://coin/coin.tscn" id="3_67dto"]
+[ext_resource type="PackedScene" uid="uid://c1lbnuh0kk2f8" path="res://scenes/falling_block.tscn" id="4_c6kno"]
+[ext_resource type="PackedScene" uid="uid://bchu1xqsxkggn" path="res://scenes/platform.tscn" id="5_gtfb5"]
+[ext_resource type="PackedScene" uid="uid://bt3peq2o2m624" path="res://slimes/purple_slime/slime_purple.tscn" id="6_01ol6"]
+[ext_resource type="PackedScene" uid="uid://bg1jwegpspq4c" path="res://slimes/green_slime/slime.tscn" id="7_5fux7"]
+[ext_resource type="PackedScene" uid="uid://cvhkt7ynupxkt" path="res://coin/coin_gate.tscn" id="8_dcxt8"]
+[ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="9_6ck6p"]
+[ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://checkpoint/checkpoint.tscn" id="10_7u1jl"]
+[ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://player/player_start.tscn" id="11_rcvve"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 0, 0, 65537, 0, 1, 2, 0, 0, 65538, 0, 1)
@@ -23,7 +22,7 @@ tile_data = PackedInt32Array(0, 131072, 4, 131072, 196608, 7, 196608, 196608, 8)
 tile_data = PackedInt32Array(0, 393216, 3, 65536, 393216, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o47d7"]
-texture = ExtResource("3_lfgd6")
+texture = ExtResource("1_omq5n")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -438,7 +437,6 @@ size = Vector2(10, 14)
 
 [node name="Level2" type="Node2D"]
 position = Vector2(127, -298)
-script = ExtResource("1_8eij6")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ta5rg")
@@ -448,213 +446,213 @@ layer_0/tile_data = PackedInt32Array(-2359320, 0, 13, -2293784, 0, 13, -2228248,
 layer_1/name = "Mid"
 layer_1/tile_data = PackedInt32Array(1376232, 196608, 0, 1441768, 196608, 0, 1507304, 196608, 0, 1572840, 196608, 0, 1638376, 196608, 0, 1703912, 131072, 0, 1703913, 131072, 0, 1703914, 131072, 0, 1703915, 131072, 0, 1703916, 131072, 0, 1703917, 131072, 0, 1703918, 131072, 0, 1507329, 131072, 0, 1507330, 131072, 0, 1507331, 131072, 0, 1507332, 131072, 0, 1114128, 131072, 0, 1114127, 131072, 0, 1114126, 131072, 0, 1114125, 131072, 0, 1114124, 131072, 0, 1245187, 131072, 0, 1114118, 131072, 0, 1114119, 131072, 0, 1114120, 131072, 0, 1114121, 131072, 0, 1114122, 131072, 0, 1638381, 524288, 6, 1441795, 458752, 6, 1441796, 524288, 7, 851977, 131072, 4, 983049, 196608, 7, 1048585, 196608, 8, 1441793, 131072, 4, 1572856, 131072, 0, 1572857, 131072, 0, 1507320, 458752, 7, 1441779, 131072, 0, 1179635, 131072, 4, 1310707, 196608, 7, 1376243, 196608, 8, 1376244, 524288, 6, 1441780, 131072, 0, 1441781, 131072, 0, 1769536, 131072, 0, 1769537, 131072, 0, 1769538, 131072, 0, 1769539, 131072, 0, 1769540, 131072, 0, 1769541, 131072, 0, 1769542, 131072, 0, 1769543, 131072, 0, 1769544, 131072, 0, 1769545, 131072, 0, 1769546, 131072, 0, 1769547, 131072, 0, 1769548, 131072, 0, 458792, 262144, 0, 458793, 262144, 0, 458794, 262144, 0, 458795, 262144, 0, 458796, 589824, 0, 458797, 655360, 0, 458798, 655360, 0, 458799, 655360, 0, 458800, 655360, 0, 458801, 720896, 0, 458802, 262144, 0, 458803, 262144, 0, 458804, 262144, 0, 458805, 262144, 0, 196649, 131072, 4, 327721, 196608, 7, 393257, 196608, 8, 393267, 196608, 8, 262195, 131072, 4, 393258, 524288, 5, 393266, 458752, 7, 458808, 262144, 1, 524344, 196608, 1, 589880, 262144, 1, 655416, 262144, 1, 720952, 262144, 1, 786488, 262144, 1, 852024, 262144, 1, 917560, 196608, 1, 983096, 262144, 1, 1048632, 262144, 1, 1114168, 262144, 1, 524350, 262144, 1, 589886, 262144, 1, 655422, 262144, 1, 720958, 262144, 1, 786494, 262144, 1, 852030, 196608, 1, 917566, 262144, 1, 983102, 262144, 1, 1048638, 262144, 1, 1114174, 196608, 1, 1179704, 262144, 1, 1245240, 262144, 1, 1310776, 262144, 1, 1376312, 196608, 1, 1441848, 262144, 1, 1507384, 262144, 1, 1572920, 262144, 1, 1179710, 262144, 1, 1245246, 262144, 1, 1310782, 196608, 1, 1376318, 262144, 1, 1769535, 131072, 0, 1769534, 131072, 0, 1769533, 131072, 0, 1769532, 131072, 0, 1769531, 131072, 0, 1769530, 131072, 0, 1769529, 131072, 0, 1572921, 262144, 0, 1572922, 262144, 0, 1376317, 262144, 0, 1376316, 262144, 0, 1179705, 262144, 0, 1179706, 262144, 0, 983101, 262144, 0, 983100, 262144, 0, 786489, 262144, 0, 786490, 262144, 0, 589884, 262144, 0, 589885, 262144, 0, 786495, 262144, 1, 720960, 262144, 1, 655424, 262144, 1, 393281, 262144, 1, 327745, 262144, 1, 262209, 262144, 1, 196673, 262144, 1, 131137, 196608, 1, 655425, 262144, 1, 458814, 262144, 1, 458815, 262144, 1, 393278, 196608, 1, 327742, 262144, 1, 262206, 196608, 1, 327741, 262144, 1, 524343, 262144, 1, 262208, 262144, 1, 65601, 262144, 1, 65, 262144, 1, -65471, 262144, 1, 786496, 262144, 1, 1769528, 131072, 0, 1769527, 131072, 0, 1769526, 131072, 0, 1769525, 131072, 0, 1769524, 131072, 0, 1769523, 131072, 0, 1769522, 131072, 0, 1769521, 131072, 0, 1769520, 131072, 0, 1769519, 131072, 0, 1769518, 131072, 0, 1769517, 131072, 0, 1769516, 131072, 0, 1769515, 131072, 0, 1769514, 131072, 0, 1769513, 131072, 0, 1769512, 131072, 0, 1769511, 131072, 0, 1769510, 131072, 0, 1769549, 131072, 0, 1769550, 131072, 0, 1769551, 131072, 0, 1769552, 131072, 0, 1704017, 196608, 0, 1638481, 196608, 0, 1572945, 196608, 0, 1507409, 196608, 0, 1441873, 196608, 0, 1376337, 196608, 0, 1310801, 196608, 0, 1769553, 196608, 0, 1704016, 0, 15, 1638480, 0, 15, 1245265, 196608, 0, 1179729, 196608, 0, 1114193, 196608, 0, 1048657, 196608, 0, 983121, 196608, 0, 917585, 196608, 0, 1441800, 131072, 0, 1441801, 131072, 0, 1441802, 131072, 0, 1441803, 131072, 0, 1441804, 131072, 0, 1441805, 131072, 0, 1441806, 131072, 0, 1376269, 458752, 7, 1048589, 131072, 4, 1048591, 524288, 7)
 
-[node name="Player" parent="." instance=ExtResource("4_joxg3")]
+[node name="Player" parent="." instance=ExtResource("2_r4np7")]
 z_index = 5
 position = Vector2(-328, 303)
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="coin2" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin2" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(-41, 28)
 
-[node name="coin3" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin3" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1175, -149)
 
-[node name="coin5" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin5" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(62, 45)
 
-[node name="coin4" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin4" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(779, -22)
 
-[node name="coin7" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin7" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(279, -58)
 
-[node name="coin41" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin41" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(230, -38)
 
-[node name="coin16" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin16" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(744, 122)
 
-[node name="coin17" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin17" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(343, 28)
 
-[node name="coin8" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin8" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(183, -4)
 
-[node name="coin9" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin9" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(-153, 91)
 
-[node name="coin26" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin26" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(23, 61)
 
-[node name="coin29" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin29" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(183, 42)
 
-[node name="coin30" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin30" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(365, -37)
 
-[node name="coin10" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin10" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(846, 73)
 
-[node name="coin11" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin11" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(391, -37)
 
-[node name="coin12" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin12" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(455, -69)
 
-[node name="coin13" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin13" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(545, -101)
 
-[node name="coin14" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin14" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(641, -133)
 
-[node name="coin15" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin15" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(725, -165)
 
-[node name="coin42" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin42" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(806, -209)
 
-[node name="coin18" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin18" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(838, -196)
 
-[node name="coin19" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin19" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(879, -192)
 
-[node name="coin31" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin31" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1095, -165)
 
-[node name="coin33" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin33" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1064, 75)
 
-[node name="coin34" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin34" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1222, 122)
 
-[node name="coin35" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin35" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1272, 122)
 
-[node name="coin36" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin36" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1333, 122)
 
-[node name="coin37" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin37" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1280, -184)
 
-[node name="coin32" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin32" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1032, -195)
 
-[node name="coin20" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin20" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(919, -195)
 
-[node name="coin27" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin27" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(911, -82)
 
-[node name="coin21" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin21" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1143, -114)
 
-[node name="coin23" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin23" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1143, -114)
 
-[node name="coin22" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin22" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1064, -114)
 
-[node name="coin38" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin38" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(951, 120)
 
-[node name="coin39" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin39" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(887, 120)
 
-[node name="coin40" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin40" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(809, 120)
 
-[node name="coin24" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin24" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1048, -18)
 
-[node name="coin25" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin25" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1111, 29)
 
-[node name="coin28" parent="Coins" instance=ExtResource("6_4j4ce")]
+[node name="coin28" parent="Coins" instance=ExtResource("3_67dto")]
 position = Vector2(1011, 45)
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="FallingBlock" parent="Platforms" instance=ExtResource("5_15xx1")]
+[node name="FallingBlock" parent="Platforms" instance=ExtResource("4_c6kno")]
 position = Vector2(455, -51)
 
-[node name="FallingBlock5" parent="Platforms" instance=ExtResource("5_15xx1")]
+[node name="FallingBlock5" parent="Platforms" instance=ExtResource("4_c6kno")]
 position = Vector2(230, 42)
 
-[node name="FallingBlock2" parent="Platforms" instance=ExtResource("5_15xx1")]
+[node name="FallingBlock2" parent="Platforms" instance=ExtResource("4_c6kno")]
 position = Vector2(545, -83)
 
-[node name="FallingBlock3" parent="Platforms" instance=ExtResource("5_15xx1")]
+[node name="FallingBlock3" parent="Platforms" instance=ExtResource("4_c6kno")]
 position = Vector2(641, -114)
 
-[node name="FallingBlock4" parent="Platforms" instance=ExtResource("5_15xx1")]
+[node name="FallingBlock4" parent="Platforms" instance=ExtResource("4_c6kno")]
 position = Vector2(725, -147)
 
-[node name="Platform" parent="Platforms" instance=ExtResource("6_1egyj")]
+[node name="Platform" parent="Platforms" instance=ExtResource("5_gtfb5")]
 position = Vector2(846, 96)
 
-[node name="Platform2" parent="Platforms" instance=ExtResource("6_1egyj")]
+[node name="Platform2" parent="Platforms" instance=ExtResource("5_gtfb5")]
 position = Vector2(908, 60)
 
-[node name="Platform3" parent="Platforms" instance=ExtResource("6_1egyj")]
+[node name="Platform3" parent="Platforms" instance=ExtResource("5_gtfb5")]
 position = Vector2(844, 31)
 
-[node name="Platform4" parent="Platforms" instance=ExtResource("6_1egyj")]
+[node name="Platform4" parent="Platforms" instance=ExtResource("5_gtfb5")]
 position = Vector2(778, -1)
 
-[node name="Platform5" parent="Platforms" instance=ExtResource("6_1egyj")]
+[node name="Platform5" parent="Platforms" instance=ExtResource("5_gtfb5")]
 position = Vector2(843, -35)
 
 [node name="Slimes" type="Node" parent="."]
 
-[node name="slime_purple5" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple5" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(-114, 65)
 
-[node name="slime_purple7" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple7" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(62, 61)
 
-[node name="slime_purple8" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple8" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(113, 61)
 
-[node name="slime" parent="Slimes" instance=ExtResource("9_np561")]
+[node name="slime" parent="Slimes" instance=ExtResource("7_5fux7")]
 position = Vector2(983, -197)
 
-[node name="slime2" parent="Slimes" instance=ExtResource("9_np561")]
+[node name="slime2" parent="Slimes" instance=ExtResource("7_5fux7")]
 position = Vector2(312, 43)
 
-[node name="slime3" parent="Slimes" instance=ExtResource("9_np561")]
+[node name="slime3" parent="Slimes" instance=ExtResource("7_5fux7")]
 position = Vector2(312, 30)
 
-[node name="slime4" parent="Slimes" instance=ExtResource("9_np561")]
+[node name="slime4" parent="Slimes" instance=ExtResource("7_5fux7")]
 position = Vector2(312, 17)
 
-[node name="slime5" parent="Slimes" instance=ExtResource("9_np561")]
+[node name="slime5" parent="Slimes" instance=ExtResource("7_5fux7")]
 position = Vector2(312, 4)
 
-[node name="slime6" parent="Slimes" instance=ExtResource("9_np561")]
+[node name="slime6" parent="Slimes" instance=ExtResource("7_5fux7")]
 position = Vector2(312, -8)
 
-[node name="slime_purple" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(1315, -31)
 
-[node name="slime_purple2" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple2" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(911, -66)
 
-[node name="slime_purple3" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple3" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(1111, -82)
 
-[node name="slime_purple6" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple6" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(1143, -257)
 
-[node name="slime_purple4" parent="Slimes" instance=ExtResource("7_jmqrs")]
+[node name="slime_purple4" parent="Slimes" instance=ExtResource("6_01ol6")]
 position = Vector2(1111, 5)
 
-[node name="CoinGate" parent="." instance=ExtResource("9_8h1wk")]
+[node name="CoinGate" parent="." instance=ExtResource("8_dcxt8")]
 position = Vector2(1245, 377)
 coins_required = 45
 
-[node name="Killzone" parent="." instance=ExtResource("5_enqiv")]
+[node name="Killzone" parent="." instance=ExtResource("9_6ck6p")]
 position = Vector2(-298, 446)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
@@ -672,8 +670,8 @@ debug_color = Color(0.887733, 0.279294, 0.452642, 1)
 
 [node name="Checkpoints" type="Node" parent="."]
 
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("11_v8h8o")]
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_7u1jl")]
 position = Vector2(823, -194)
 
-[node name="PlayerStart" parent="." instance=ExtResource("12_d5lfn")]
+[node name="PlayerStart" parent="." instance=ExtResource("11_rcvve")]
 position = Vector2(-328, 389)

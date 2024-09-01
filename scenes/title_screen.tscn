@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_3ncoc"]
 [ext_resource type="FontFile" uid="uid://dtdrb0o0ca4nh" path="res://assets/fonts/PixelOperator8.ttf" id="1_4d42q"]
-[ext_resource type="Texture2D" uid="uid://gntl61ojaeu0" path="res://assets/sprites/knight.png" id="2_8afjv"]
+[ext_resource type="Texture2D" uid="uid://gntl61ojaeu0" path="res://player/knight.png" id="2_8afjv"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_8v3jj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqxjk"]

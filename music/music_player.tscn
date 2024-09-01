@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3ak5xbus7ecv"]
 
-[ext_resource type="Script" path="res://scripts/music_player.gd" id="1_cq2x7"]
-[ext_resource type="AudioStream" uid="uid://bk7arpa7jlxqb" path="res://assets/music/time_for_adventure.mp3" id="2_fcikc"]
+[ext_resource type="Script" path="res://music/music_player.gd" id="1_cq2x7"]
+[ext_resource type="AudioStream" uid="uid://bk7arpa7jlxqb" path="res://music/time_for_adventure.mp3" id="2_fcikc"]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource("1_cq2x7")

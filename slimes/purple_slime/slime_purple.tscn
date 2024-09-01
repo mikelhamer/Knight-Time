@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://bt3peq2o2m624"]
 
-[ext_resource type="Script" path="res://scripts/slime_purple.gd" id="1_b83e6"]
+[ext_resource type="Script" path="res://slimes/purple_slime/slime_purple.gd" id="1_b83e6"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="3_vxhay"]
-[ext_resource type="Texture2D" uid="uid://b10xnl5ra4fbq" path="res://assets/sprites/slime_purple.png" id="3_yk5dn"]
+[ext_resource type="Texture2D" uid="uid://b10xnl5ra4fbq" path="res://slimes/purple_slime/slime_purple.png" id="3_yk5dn"]
 [ext_resource type="AudioStream" uid="uid://bwcvl007ya41h" path="res://assets/sounds/jump.wav" id="4_cnnv4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78slk"]

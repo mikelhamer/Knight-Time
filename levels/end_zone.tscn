@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5n8dgjvdpomk"]
+
+[ext_resource type="Script" path="res://levels/end_zone.gd" id="1_nqeej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyvoe"]
+size = Vector2(14, 20)
+
+[node name="EndZone" type="Area2D"]
+script = ExtResource("1_nqeej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nyvoe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

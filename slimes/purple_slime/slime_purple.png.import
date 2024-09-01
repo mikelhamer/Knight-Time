@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gntl61ojaeu0"
-path="res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"
+uid="uid://b10xnl5ra4fbq"
+path="res://.godot/imported/slime_purple.png-65783a6f865cc6741106134e77bac0c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/knight.png"
-dest_files=["res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"]
+source_file="res://slimes/purple_slime/slime_purple.png"
+dest_files=["res://.godot/imported/slime_purple.png-65783a6f865cc6741106134e77bac0c8.ctex"]
 
 [params]
 

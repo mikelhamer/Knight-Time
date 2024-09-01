@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://b2hva3km3ay5r"]
 
-[ext_resource type="Script" path="res://scripts/slime_boss.gd" id="1_kikg1"]
-[ext_resource type="Texture2D" uid="uid://caj5csky7ulr3" path="res://assets/sprites/slime_green.png" id="2_mx6i3"]
+[ext_resource type="Script" path="res://slimes/slime_boss/slime_boss.gd" id="1_kikg1"]
+[ext_resource type="Texture2D" uid="uid://caj5csky7ulr3" path="res://slimes/green_slime/slime_green.png" id="2_mx6i3"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="3_fwjrf"]
 [ext_resource type="AudioStream" uid="uid://bwcvl007ya41h" path="res://assets/sounds/jump.wav" id="4_qxp7a"]
 [ext_resource type="AudioStream" uid="uid://b58svrhsuaub7" path="res://assets/sounds/explosion.wav" id="5_sgpuq"]

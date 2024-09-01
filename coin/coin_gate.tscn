@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cvhkt7ynupxkt"]
 
-[ext_resource type="Script" path="res://scripts/coin_gate.gd" id="1_hs5n2"]
+[ext_resource type="Script" path="res://coin/coin_gate.gd" id="1_hs5n2"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="1_ohpqc"]
 [ext_resource type="AudioStream" uid="uid://bf5tyham50dv7" path="res://assets/sounds/hurt.wav" id="3_3006u"]
 [ext_resource type="FontFile" uid="uid://dtdrb0o0ca4nh" path="res://assets/fonts/PixelOperator8.ttf" id="3_yt3eq"]

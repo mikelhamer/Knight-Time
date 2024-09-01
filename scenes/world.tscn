@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ul120kqpt7o3"]
+[gd_scene load_steps=5 format=3 uid="uid://oawbwkqeirxj"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_cdsy2"]
-[ext_resource type="PackedScene" uid="uid://bwuu7wo2tm4v3" path="res://scenes/title_screen.tscn" id="3_rdyj3"]
-[ext_resource type="PackedScene" uid="uid://bac5e641aovsr" path="res://scenes/hud.tscn" id="4_3bxsk"]
+[sub_resource type="GDScript" id="GDScript_qrba2"]
+script/source = "extends Node2D
+"
 
 [sub_resource type="Animation" id="Animation_f24hw"]
 length = 0.001
@@ -55,19 +55,12 @@ _data = {
 "fade_to_next_level": SubResource("Animation_sq16o")
 }
 
-[node name="Main" type="Node"]
-script = ExtResource("1_cdsy2")
+[node name="World" type="Node2D"]
+script = SubResource("GDScript_qrba2")
 
-[node name="TitleScreen" parent="." instance=ExtResource("3_rdyj3")]
-
-[node name="HUD" parent="." instance=ExtResource("4_3bxsk")]
-visible = false
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vc0gf")
 }
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-
-[connection signal="game_started" from="TitleScreen" to="." method="_on_title_screen_game_started"]

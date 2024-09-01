@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bg1jwegpspq4c"]
 
-[ext_resource type="Script" path="res://scripts/slime.gd" id="1_ky2rp"]
-[ext_resource type="Texture2D" uid="uid://caj5csky7ulr3" path="res://assets/sprites/slime_green.png" id="1_rwoes"]
+[ext_resource type="Script" path="res://slimes/green_slime/slime.gd" id="1_ky2rp"]
+[ext_resource type="Texture2D" uid="uid://caj5csky7ulr3" path="res://slimes/green_slime/slime_green.png" id="1_rwoes"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="2_q7cem"]
 [ext_resource type="AudioStream" uid="uid://bwcvl007ya41h" path="res://assets/sounds/jump.wav" id="4_smjhf"]
 
