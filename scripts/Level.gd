@@ -1,5 +1,5 @@
-extends Node2D
 class_name Level
+extends Node2D
 
 @onready var checkpoints = $Checkpoints
 @onready var complete_level: Area2D = $CompleteLevel
