@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="9_6ck6p"]
 [ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://checkpoint/checkpoint.tscn" id="10_7u1jl"]
 [ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://player/player_start.tscn" id="11_rcvve"]
+[ext_resource type="PackedScene" uid="uid://b5n8dgjvdpomk" path="res://levels/end_zone.tscn" id="12_r231r"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 0, 0, 65537, 0, 1, 2, 0, 0, 65538, 0, 1)
@@ -432,9 +433,6 @@ pattern_2 = SubResource("TileMapPattern_amgr0")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f377p"]
 distance = -177.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f4v2"]
-size = Vector2(10, 14)
-
 [node name="Level2" type="Node2D"]
 position = Vector2(127, -298)
 
@@ -659,15 +657,6 @@ position = Vector2(-298, 446)
 position = Vector2(-4, -153)
 shape = SubResource("WorldBoundaryShape2D_f377p")
 
-[node name="CompleteLevel" type="Area2D" parent="."]
-position = Vector2(1284, 425)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CompleteLevel"]
-position = Vector2(7, 0)
-shape = SubResource("RectangleShape2D_6f4v2")
-debug_color = Color(0.887733, 0.279294, 0.452642, 1)
-
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_7u1jl")]
@@ -675,3 +664,6 @@ position = Vector2(823, -194)
 
 [node name="PlayerStart" parent="." instance=ExtResource("11_rcvve")]
 position = Vector2(-328, 389)
+
+[node name="EndZone" parent="." instance=ExtResource("12_r231r")]
+position = Vector2(1289, 422)

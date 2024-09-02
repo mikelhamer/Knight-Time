@@ -35,6 +35,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	coyote_timer.wait_time = coyote_seconds
+	get_parent().get_node("EndZone").connect("reached", stop)
 
 func _physics_process(delta):
 	if stopped:
@@ -153,8 +154,7 @@ func die():
 	%DeathTimer.start()
 
 func _on_death_timer_timeout():
-	Game.subtract_level_coins()
-	Game.died.emit()
+	Game.over()
 	
 func stop():
 	stopped = true

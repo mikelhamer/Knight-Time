@@ -88,7 +88,7 @@ func _on_laser_timer_timeout():
 	
 func shoot_laser():
 	animation_player.play("lazer")
-	var lazer_scene = load('res://scenes/lazer.tscn') as PackedScene
+	var lazer_scene = load('res://slimes/slime_boss/lazer.tscn') as PackedScene
 	var lazer = lazer_scene.instantiate() as Lazer
 	lazer.global_position = lazer_origin.global_position	
 	lazer.speed = lazer_speed

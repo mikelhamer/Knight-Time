@@ -15,11 +15,17 @@ var levels := [
 var level_index := 0
 var current_level
 
+func _ready():
+	Game.game_over.connect(load_current_level)
+
 func load_level(index: int):
 	if (current_level):
 		remove_child(current_level)
 	var level_scene = load(levels[index]) as PackedScene
 	current_level = level_scene.instantiate()
+	var end_zone = current_level.get_node("EndZone") as EndZone
+	if (end_zone):
+		end_zone.reached.connect(_on_end_zone_reached)
 	add_child(current_level)
 	animation_player.play("RESET")
 	
@@ -27,10 +33,13 @@ func load_next_level():
 	level_index += 1
 	load_level(level_index)
 	
+func load_current_level():
+	load_level(level_index)
+	
 func _on_title_screen_game_started():
 	remove_child(title_screen)
 	load_level(level_index)
 	hud.visible = true
 
-func _on_level_completed():
+func _on_end_zone_reached():
 	animation_player.play("fade_to_next_level")

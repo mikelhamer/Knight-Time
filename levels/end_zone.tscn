@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://levels/end_zone.gd" id="1_nqeej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyvoe"]
-size = Vector2(14, 20)
+size = Vector2(8, 20)
 
 [node name="EndZone" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_nqeej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

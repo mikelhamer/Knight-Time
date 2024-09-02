@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8iu55ij1jiyr"]
+[gd_scene load_steps=18 format=3 uid="uid://c8iu55ij1jiyr"]
 
 [ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://player/player_start.tscn" id="1_kgh1u"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_vrakt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cvhkt7ynupxkt" path="res://coin/coin_gate.tscn" id="8_apn64"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="9_1rw67"]
 [ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://checkpoint/checkpoint.tscn" id="10_o66o4"]
+[ext_resource type="PackedScene" uid="uid://b5n8dgjvdpomk" path="res://levels/end_zone.tscn" id="11_mts80"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 0, 0, 65537, 0, 1, 2, 0, 0, 65538, 0, 1)
@@ -447,12 +448,12 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("3_mvwky")]
 z_index = 5
-position = Vector2(662, 372)
+position = Vector2(56, 359)
 
 [node name="Coins" type="Node" parent="."]
 
 [node name="coin" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(88, 39)
+position = Vector2(68, 42)
 
 [node name="coin11" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(152, 56)
@@ -461,7 +462,7 @@ position = Vector2(152, 56)
 position = Vector2(265, 14)
 
 [node name="coin24" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(281, 45)
+position = Vector2(281, 41)
 
 [node name="coin25" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(424, 71)
@@ -475,14 +476,8 @@ position = Vector2(602, 17)
 [node name="coin28" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(681, -8)
 
-[node name="coin29" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(713, -23)
-
-[node name="coin34" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(795, -22)
-
 [node name="coin30" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(57, 42)
+position = Vector2(45, 42)
 
 [node name="coin31" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(-95, 41)
@@ -494,7 +489,7 @@ position = Vector2(-96, -4)
 position = Vector2(58, -55)
 
 [node name="coin15" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(362, 44)
+position = Vector2(362, 41)
 
 [node name="coin16" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(297, 88)
@@ -527,16 +522,16 @@ position = Vector2(41, -85)
 position = Vector2(104, -79)
 
 [node name="coin12" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(154, -46)
+position = Vector2(151, -46)
 
 [node name="coin13" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(154, -19)
+position = Vector2(151, -19)
 
 [node name="coin14" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(154, 8)
+position = Vector2(151, 8)
 
 [node name="coin7" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(-173, -22)
+position = Vector2(-173, -26)
 
 [node name="coin4" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(-24, 24)
@@ -579,9 +574,6 @@ position = Vector2(602, 40)
 [node name="slime5" parent="Slimes" instance=ExtResource("7_goj8j")]
 position = Vector2(634, 24)
 
-[node name="slime6" parent="Slimes" instance=ExtResource("7_goj8j")]
-position = Vector2(824, -25)
-
 [node name="CoinGate" parent="." instance=ExtResource("8_apn64")]
 position = Vector2(1095, 279)
 coins_required = 20
@@ -597,3 +589,6 @@ shape = SubResource("WorldBoundaryShape2D_f377p")
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_o66o4")]
 position = Vector2(768, -22)
+
+[node name="EndZone" parent="." instance=ExtResource("11_mts80")]
+position = Vector2(1146, 326)
