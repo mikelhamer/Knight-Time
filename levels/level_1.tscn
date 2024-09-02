@@ -448,7 +448,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("3_mvwky")]
 z_index = 5
-position = Vector2(56, 359)
+position = Vector2(996, 324)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -473,8 +473,11 @@ position = Vector2(537, 56)
 [node name="coin27" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(602, 17)
 
-[node name="coin28" parent="Coins" instance=ExtResource("4_iisi3")]
-position = Vector2(681, -8)
+[node name="coin34" parent="Coins" instance=ExtResource("4_iisi3")]
+position = Vector2(758, -20)
+
+[node name="coin29" parent="Coins" instance=ExtResource("4_iisi3")]
+position = Vector2(803, -21)
 
 [node name="coin30" parent="Coins" instance=ExtResource("4_iisi3")]
 position = Vector2(45, 42)
@@ -574,6 +577,9 @@ position = Vector2(602, 40)
 [node name="slime5" parent="Slimes" instance=ExtResource("7_goj8j")]
 position = Vector2(634, 24)
 
+[node name="slime6" parent="Slimes" instance=ExtResource("7_goj8j")]
+position = Vector2(720, -24)
+
 [node name="CoinGate" parent="." instance=ExtResource("8_apn64")]
 position = Vector2(1095, 279)
 coins_required = 20
@@ -585,10 +591,8 @@ position = Vector2(347, 495)
 position = Vector2(-4, -153)
 shape = SubResource("WorldBoundaryShape2D_f377p")
 
-[node name="Checkpoints" type="Node" parent="."]
-
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_o66o4")]
-position = Vector2(768, -22)
+[node name="Checkpoint" parent="." instance=ExtResource("10_o66o4")]
+position = Vector2(1036, 328)
 
 [node name="EndZone" parent="." instance=ExtResource("11_mts80")]
 position = Vector2(1146, 326)

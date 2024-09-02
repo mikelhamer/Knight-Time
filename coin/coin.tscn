@@ -197,7 +197,7 @@ _data = {
 "coin_get": SubResource("Animation_q1tde")
 }
 
-[node name="coin" type="Area2D"]
+[node name="coin" type="Area2D" groups=["coins"]]
 collision_mask = 2
 script = ExtResource("1_q3rci")
 

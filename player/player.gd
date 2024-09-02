@@ -34,6 +34,7 @@ var was_swim_up := false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	Game.player = self
 	coyote_timer.wait_time = coyote_seconds
 	get_parent().get_node("EndZone").connect("reached", stop)
 

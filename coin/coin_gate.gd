@@ -11,6 +11,6 @@ func _ready():
 	label.text = "%s coins to pass!" % coins_required
 
 func _on_area_2d_body_entered(body):
-	if (Game.level_coins + Game.total_coins >= coins_required):
+	if (Game.level_coins.size() + Game.total_coins.size() >= coins_required):
 		label.text = "Good job!"
 		animation_player.play("gate_open")

@@ -13,12 +13,13 @@ var levels := [
 ]
 
 var level_index := 0
-var current_level
+var current_level: Node
 
 func _ready():
 	Game.game_over.connect(load_current_level)
 
 func load_level(index: int):
+	Coin.id_sequence = 0
 	if (current_level):
 		remove_child(current_level)
 	var level_scene = load(levels[index]) as PackedScene
@@ -35,6 +36,10 @@ func load_next_level():
 	
 func load_current_level():
 	load_level(level_index)
+	Game.load()
+	for coin in current_level.get_tree().get_nodes_in_group("coins"):
+		if Game.total_coins.has(coin.id):
+			coin.queue_free()
 	
 func _on_title_screen_game_started():
 	remove_child(title_screen)
