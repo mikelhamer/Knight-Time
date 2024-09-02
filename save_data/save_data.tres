@@ -1,14 +1,10 @@
 [gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://save_data/save_data.gd" id="1_5whsq"]
+[ext_resource type="Script" path="res://save_data/save_data.gd" id="1_07y5s"]
 
 [resource]
-script = ExtResource("1_5whsq")
+script = ExtResource("1_07y5s")
 coins = {
-5: Vector2(424, 71),
-6: Vector2(537, 56),
-7: Vector2(602, 17),
-8: Vector2(758, -20),
-17: Vector2(456, 107),
-18: Vector2(456, 92)
+8: Vector2(758, -20)
 }
+checkpoint_reached = false

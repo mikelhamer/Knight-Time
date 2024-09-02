@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcbkeqbi421da"]
+[gd_scene load_steps=8 format=3 uid="uid://dcbkeqbi421da"]
 
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="1_iki3a"]
 [ext_resource type="Script" path="res://checkpoint/checkpoint.gd" id="1_yiel1"]
+[ext_resource type="AudioStream" uid="uid://bq71yogjuexbc" path="res://coin/coin.wav" id="3_0h5sh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xh84"]
 size = Vector2(19.1093, 46.8111)
+
+[sub_resource type="Animation" id="Animation_mvkmg"]
+resource_name = "reached"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.760784, 0.0980392, 0), Color(0, 0.556863, 0.0588235, 0.898039)]
+}
+
+[sub_resource type="Animation" id="Animation_80pud"]
+resource_name = "already_reached"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.556863, 0.0588235, 0.898039)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64uhl"]
+_data = {
+"already_reached": SubResource("Animation_80pud"),
+"reached": SubResource("Animation_mvkmg")
+}
 
 [node name="Checkpoint" type="Area2D"]
 scale = Vector2(1.25593, 1.25593)
@@ -19,5 +57,23 @@ region_rect = Rect2(129, 65, 15, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16.4056)
 shape = SubResource("RectangleShape2D_3xh84")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_64uhl")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -7.96223
+offset_right = 5.0
+offset_bottom = -2.96223
+rotation = -2.44346
+color = Color(0, 0.760784, 0.0980392, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0h5sh")
+volume_db = -1.19
+pitch_scale = 0.33
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

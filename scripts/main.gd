@@ -27,6 +27,9 @@ func load_level(index: int):
 	var end_zone = current_level.get_node("EndZone") as EndZone
 	if (end_zone):
 		end_zone.reached.connect(_on_end_zone_reached)
+	if Game.checkpoint_position:
+		print("from checkpoint")
+		current_level.get_node("Player").global_position = Game.checkpoint_position
 	add_child(current_level)
 	animation_player.play("RESET")
 	

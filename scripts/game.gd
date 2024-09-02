@@ -5,6 +5,7 @@ signal game_over
 
 var level_coins = {}
 var total_coins = {}
+var checkpoint_position: Vector2
 var player: Player
 
 func save():
