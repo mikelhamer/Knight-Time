@@ -28,21 +28,24 @@ func load_level(index: int):
 	if (end_zone):
 		end_zone.reached.connect(_on_end_zone_reached)
 	if Game.checkpoint_position:
-		print("from checkpoint")
 		current_level.get_node("Player").global_position = Game.checkpoint_position
 	add_child(current_level)
 	animation_player.play("RESET")
 	
 func load_next_level():
+	Game.checkpoint_position = Vector2(0, 0)
+	Game.save_level_coins()
+	Game.save()
 	level_index += 1
 	load_level(level_index)
 	
 func load_current_level():
 	load_level(level_index)
 	Game.load()
-	for coin in current_level.get_tree().get_nodes_in_group("coins"):
-		if Game.total_coins.has(coin.id):
-			coin.queue_free()
+	if Game.checkpoint_position:
+		for coin in current_level.get_tree().get_nodes_in_group("coins"):
+			if Game.total_coins.has(coin.id):
+				coin.queue_free()
 	
 func _on_title_screen_game_started():
 	remove_child(title_screen)

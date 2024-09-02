@@ -1303,10 +1303,8 @@ position = Vector2(1111, 281)
 [node name="PlayerStart" parent="." instance=ExtResource("9_t3cji")]
 position = Vector2(-352, -205)
 
-[node name="Checkpoints" type="Node" parent="."]
-
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_c5thh")]
-position = Vector2(583, -226)
+[node name="Checkpoint" parent="." instance=ExtResource("10_c5thh")]
+position = Vector2(456, 72)
 
 [node name="EndZone" parent="." instance=ExtResource("11_af2vq")]
 position = Vector2(2057, -250)

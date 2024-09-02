@@ -12,7 +12,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if !reached:
-		print("Checkpoint reached!")
 		reached = true
 		animation_player.play("reached")
 		audio_stream_player.play()

@@ -6,22 +6,29 @@ signal game_over
 var level_coins = {}
 var total_coins = {}
 var checkpoint_position: Vector2
-var player: Player
+
+func _ready():
+	level_coins = {}
+	total_coins = {}
+	checkpoint_position = Vector2(0,0)
+	save()
 
 func save():
-	total_coins.merge(level_coins)
-	level_coins = {}
+	save_level_coins()
 	var save_data = SaveData.new()
 	save_data.coins = total_coins
+	save_data.checkpoint_position = checkpoint_position
 	ResourceSaver.save(save_data, "res://save_data/save_data.tres")
 
 func load():
 	var save_data = ResourceLoader.load("res://save_data/save_data.tres") as SaveData
 	total_coins = save_data.coins
+	checkpoint_position = save_data.checkpoint_position
+	print("load game", checkpoint_position)
+	
 
 func add_level_coin(id, position):
 	level_coins[id] = position
-	print(id, position)
 	coins_updated.emit(level_coins.size() + total_coins.size())
 
 func reset():
@@ -33,3 +40,8 @@ func over():
 	level_coins = {}
 	coins_updated.emit(total_coins.size())
 	game_over.emit()
+	
+func save_level_coins():
+	total_coins.merge(level_coins)
+	level_coins = {}
+	

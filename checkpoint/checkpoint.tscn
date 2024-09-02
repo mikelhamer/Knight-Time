@@ -68,7 +68,7 @@ offset_top = -7.96223
 offset_right = 5.0
 offset_bottom = -2.96223
 rotation = -2.44346
-color = Color(0, 0.760784, 0.0980392, 0)
+color = Color(0, 0.556863, 0.0588235, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0h5sh")
