@@ -586,6 +586,3 @@ position = Vector2(647, 376)
 
 [node name="EndZone" parent="." instance=ExtResource("11_mts80")]
 position = Vector2(1146, 326)
-
-[node name="slime" parent="." instance=ExtResource("7_goj8j")]
-position = Vector2(86, 388)
