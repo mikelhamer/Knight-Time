@@ -25,8 +25,6 @@ func load():
 	var save_data = ResourceLoader.load("res://save_data/save_data.tres") as SaveData
 	total_coins = save_data.coins
 	checkpoint_position = save_data.checkpoint_position
-	print("load game", checkpoint_position)
-	
 
 func add_level_coin(id, position):
 	level_coins[id] = position

@@ -12,7 +12,6 @@ func _ready():
 	id = Game.current_level + "_" + str(id_sequence)
 
 func _on_body_entered(body):
-	print(id)
 	animation_player.play("coin_get")
 	Game.add_level_coin(id, global_position)
 	
