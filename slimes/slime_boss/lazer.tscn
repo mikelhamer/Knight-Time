@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c52npb1t64oes"]
 
-[ext_resource type="Script" path="res://scripts/lazer.gd" id="1_52v87"]
+[ext_resource type="Script" path="res://slimes/slime_boss/lazer.gd" id="1_52v87"]
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="2_ocowc"]
 [ext_resource type="AudioStream" uid="uid://bn35wo03kknby" path="res://assets/sounds/power_up.wav" id="3_1pap8"]
 

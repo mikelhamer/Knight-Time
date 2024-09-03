@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dw1v64k1wvhuk"]
 
 [ext_resource type="FontFile" uid="uid://dtdrb0o0ca4nh" path="res://assets/fonts/PixelOperator8.ttf" id="1_gqxcq"]
-[ext_resource type="Script" path="res://scripts/credits.gd" id="1_haw52"]
+[ext_resource type="Script" path="res://levels/credits.gd" id="1_haw52"]
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_haw52")
