@@ -74,11 +74,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6p4w"]
-size = Vector2(12, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3m3v"]
+radius = 5.00625
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o57e"]
-size = Vector2(10, 2)
+size = Vector2(4, 6)
 
 [sub_resource type="Animation" id="Animation_1b8ou"]
 resource_name = "die"
@@ -132,8 +132,8 @@ flip_h = true
 collision_layer = 256
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_j6p4w")
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_f3m3v")
 debug_color = Color(0.996754, 0, 0.180426, 0.42)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
@@ -151,7 +151,7 @@ collision_mask = 2
 priority = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeakSpot"]
-position = Vector2(0, -3)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_4o57e")
 debug_color = Color(0.908516, 0.38834, 0.347308, 0.419608)
 

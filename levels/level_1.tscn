@@ -444,7 +444,7 @@ layer_1/tile_data = PackedInt32Array(1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("3_mvwky")]
 z_index = 5
-position = Vector2(74, 388)
+position = Vector2(65, 388)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -586,3 +586,6 @@ position = Vector2(647, 376)
 
 [node name="EndZone" parent="." instance=ExtResource("11_mts80")]
 position = Vector2(1146, 326)
+
+[node name="slime" parent="." instance=ExtResource("7_goj8j")]
+position = Vector2(86, 388)
