@@ -7,6 +7,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xh84"]
 size = Vector2(19.1093, 46.8111)
 
+[sub_resource type="Animation" id="Animation_80pud"]
+resource_name = "already_reached"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.556863, 0.0588235, 0.898039)]
+}
+
 [sub_resource type="Animation" id="Animation_mvkmg"]
 resource_name = "reached"
 length = 4.0
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0.760784, 0.0980392, 0), Color(0, 0.556863, 0.0588235, 0.898039)]
-}
-
-[sub_resource type="Animation" id="Animation_80pud"]
-resource_name = "already_reached"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0.556863, 0.0588235, 0.898039)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_64uhl"]

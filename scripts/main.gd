@@ -20,6 +20,7 @@ func _ready():
 
 func load_level(index: int):
 	Coin.id_sequence = 0
+	Game.current_level = "level" + str(level_index + 1)
 	if (current_level):
 		remove_child(current_level)
 	var level_scene = load(levels[index]) as PackedScene

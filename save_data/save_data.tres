@@ -1,47 +1,22 @@
 [gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://save_data/save_data.gd" id="1_elrxc"]
+[ext_resource type="Script" path="res://save_data/save_data.gd" id="1_poek3"]
 
 [resource]
-script = ExtResource("1_elrxc")
+script = ExtResource("1_poek3")
 coins = {
-1: Vector2(68, 42),
-2: Vector2(152, 56),
-3: Vector2(265, 18),
-4: Vector2(281, 41),
-5: Vector2(424, 71),
-6: Vector2(537, 56),
-7: Vector2(602, 17),
-8: Vector2(681, -9),
-9: Vector2(45, 42),
-10: Vector2(-95, 41),
-11: Vector2(-96, -4),
-12: Vector2(58, -55),
-13: Vector2(362, 41),
-14: Vector2(846, 73),
-15: Vector2(391, -37),
-16: Vector2(456, 107),
-17: Vector2(456, 92),
-18: Vector2(641, -133),
-19: Vector2(725, -165),
-20: Vector2(806, -209),
-21: Vector2(-57, -39),
-22: Vector2(41, -85),
-23: Vector2(104, -79),
-24: Vector2(151, -46),
-25: Vector2(151, -19),
-26: Vector2(151, 8),
-27: Vector2(-173, -26),
-28: Vector2(-24, 24),
-29: Vector2(1032, -195),
-30: Vector2(919, -195),
-31: Vector2(911, -82),
-34: Vector2(1064, -114),
-35: Vector2(951, 120),
-36: Vector2(887, 120),
-37: Vector2(809, 120),
-38: Vector2(1048, -18),
-39: Vector2(1111, 29),
-40: Vector2(1011, 45)
+"level1_10": Vector2(-95, 41),
+"level1_11": Vector2(-96, -4),
+"level1_12": Vector2(58, -55),
+"level1_13": Vector2(362, 41),
+"level1_2": Vector2(152, 56),
+"level1_21": Vector2(-57, -39),
+"level1_22": Vector2(41, -85),
+"level1_23": Vector2(104, -79),
+"level1_24": Vector2(151, -46),
+"level1_25": Vector2(151, -19),
+"level1_26": Vector2(151, 8),
+"level1_3": Vector2(265, 18),
+"level1_4": Vector2(281, 41)
 }
-checkpoint_position = Vector2(0, 0)
+checkpoint_position = Vector2(392, 27)

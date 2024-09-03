@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8iu55ij1jiyr"]
+[gd_scene load_steps=17 format=3 uid="uid://c8iu55ij1jiyr"]
 
-[ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://player/player_start.tscn" id="1_kgh1u"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_vrakt"]
 [ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://player/player.tscn" id="3_mvwky"]
 [ext_resource type="PackedScene" uid="uid://d2tf7xvwoh2rb" path="res://coin/coin.tscn" id="4_iisi3"]
@@ -434,9 +433,6 @@ distance = -177.0
 
 [node name="Level1" type="Node2D"]
 position = Vector2(-255, -349)
-
-[node name="PlayerStart" parent="." instance=ExtResource("1_kgh1u")]
-position = Vector2(990, 323)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ta5rg")

@@ -5,12 +5,14 @@ extends Area2D
 
 static var id_sequence = 0
 
-var id: int
+var id: String
 
 func _ready():
 	id_sequence += 1
-	id = id_sequence
+	id = Game.current_level + "_" + str(id_sequence)
 
 func _on_body_entered(body):
+	print(id)
 	animation_player.play("coin_get")
 	Game.add_level_coin(id, global_position)
+	

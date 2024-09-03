@@ -6,6 +6,7 @@ signal game_over
 var level_coins = {}
 var total_coins = {}
 var checkpoint_position: Vector2
+var current_level: String
 
 func _ready():
 	level_coins = {}
@@ -34,6 +35,8 @@ func add_level_coin(id, position):
 func reset():
 	level_coins = {}
 	total_coins = {}
+	checkpoint_position = Vector2(0, 0)
+	save()
 	coins_updated.emit(total_coins.size())
 	
 func over():
