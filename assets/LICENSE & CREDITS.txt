@@ -7,6 +7,9 @@ Creative Commons Zero (CC0)
 
 
 CREDIT:
+	
+PROGRAMMING by Brackeys (original tutorial), MadollaMike (expansion)
+https://www.youtube.com/watch?v=LOhfqjmasi0
 
 SPRITES by analogStudios_:
 knight (https://analogstudios.itch.io/camelot)
