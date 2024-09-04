@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cw6u646dlcybp"]
+[gd_scene load_steps=21 format=3 uid="uid://cw6u646dlcybp"]
 
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="1_gvwot"]
 [ext_resource type="PackedScene" uid="uid://bij7cabj3icl6" path="res://player/player.tscn" id="2_0xxao"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ckks5l334qgo1" path="res://player/player_start.tscn" id="9_t3cji"]
 [ext_resource type="PackedScene" uid="uid://dcbkeqbi421da" path="res://checkpoint/checkpoint.tscn" id="10_c5thh"]
 [ext_resource type="PackedScene" uid="uid://b5n8dgjvdpomk" path="res://levels/end_zone.tscn" id="11_af2vq"]
+[ext_resource type="PackedScene" uid="uid://bt3peq2o2m624" path="res://slimes/purple_slime/slime_purple.tscn" id="12_redh2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7k6il"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 0, 0, 65537, 0, 1, 2, 0, 0, 65538, 0, 1)
@@ -1308,3 +1309,27 @@ position = Vector2(456, 72)
 
 [node name="EndZone" parent="." instance=ExtResource("11_af2vq")]
 position = Vector2(2057, -250)
+
+[node name="slime_purple" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(377, 76)
+
+[node name="slime_purple2" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(309, 146)
+
+[node name="slime_purple8" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(500, -214)
+
+[node name="slime_purple3" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(230, 217)
+
+[node name="slime_purple4" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(469, 251)
+
+[node name="slime_purple5" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(653, 250)
+
+[node name="slime_purple6" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(881, 251)
+
+[node name="slime_purple7" parent="." instance=ExtResource("12_redh2")]
+position = Vector2(1132, 260)
