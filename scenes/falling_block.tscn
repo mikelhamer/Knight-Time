@@ -7,7 +7,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajfxf"]
-size = Vector2(16, 4)
+size = Vector2(10, 4)
 
 [node name="FallingBlock" type="AnimatableBody2D"]
 script = ExtResource("1_0t1so")
