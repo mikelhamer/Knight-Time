@@ -12,7 +12,7 @@ var levels := [
 	"res://levels/credits.tscn",
 ]
 
-var level_index := 3
+var level_index := 0
 var current_level: Node
 
 func _ready():
