@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://bwuu7wo2tm4v3"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_3ncoc"]
+[ext_resource type="Script" path="res://title/title_screen.gd" id="1_3ncoc"]
 [ext_resource type="FontFile" uid="uid://dtdrb0o0ca4nh" path="res://assets/fonts/PixelOperator8.ttf" id="1_4d42q"]
 [ext_resource type="Texture2D" uid="uid://gntl61ojaeu0" path="res://player/knight.png" id="2_8afjv"]
 [ext_resource type="Texture2D" uid="uid://dnny7owvikgee" path="res://assets/sprites/world_tileset.png" id="2_8v3jj"]
@@ -319,6 +319,7 @@ _data = {
 }
 
 [node name="TitleScreen" type="Node2D"]
+scale = Vector2(1.26054, 1.44598)
 script = ExtResource("1_3ncoc")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -340,6 +341,7 @@ theme_override_font_sizes/font_size = 88
 text = "KNIGHT TIME!"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Prompt" type="Label" parent="."]
 offset_top = 569.0
@@ -351,6 +353,7 @@ theme_override_font_sizes/font_size = 38
 text = "Press any key to start..."
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.509804)

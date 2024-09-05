@@ -161,7 +161,7 @@ collision_mask = 2
 priority = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeakSpot"]
-position = Vector2(-5.94756e-13, 1.07143)
+position = Vector2(-5.94756e-13, -0.428571)
 shape = SubResource("RectangleShape2D_leppr")
 debug_color = Color(0.908516, 0.38834, 0.347308, 0.419608)
 

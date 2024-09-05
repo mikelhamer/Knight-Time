@@ -4,6 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://cw0t5egjis6sm" path="res://scenes/killzone.tscn" id="2_ocowc"]
 [ext_resource type="AudioStream" uid="uid://bn35wo03kknby" path="res://assets/sounds/power_up.wav" id="3_1pap8"]
 
+[sub_resource type="Animation" id="Animation_vgcyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_wngdx"]
 resource_name = "shoot"
 length = 3.0
@@ -58,21 +73,6 @@ tracks/3/keys = {
 "values": [Color(1, 0, 0, 1), Color(0.9571, 0.759014, 0, 1), Color(1, 0, 0, 1), Color(0.956863, 0.760784, 0, 1), Color(1, 0, 0, 1), Color(0.9571, 0.759014, 0, 1), Color(1, 0, 0, 1), Color(0.956863, 0.760784, 0, 1), Color(1, 0, 0, 1), Color(0.9571, 0.759014, 0, 1), Color(1, 0, 0, 1), Color(0.956863, 0.760784, 0, 1), Color(1, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_vgcyl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_32rco"]
 _data = {
 "RESET": SubResource("Animation_vgcyl"),
@@ -82,7 +82,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82o5w"]
 size = Vector2(62, 1)
 
-[node name="Lazer" type="Area2D"]
+[node name="Lazer" type="Area2D" groups=["lazers"]]
 position = Vector2(-5.9322, 5.9322)
 scale = Vector2(0.3, 2.3)
 script = ExtResource("1_52v87")

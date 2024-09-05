@@ -701,7 +701,7 @@ layer_2/tile_data = PackedInt32Array(-196616, 393216, 3, -131080, 393216, 4, -19
 
 [node name="Player" parent="." instance=ExtResource("2_0xxao")]
 z_index = 5
-position = Vector2(383, 59)
+position = Vector2(-357, -252)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -769,25 +769,25 @@ position = Vector2(1081, -238)
 position = Vector2(1095, -238)
 
 [node name="coin23" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(1059, -255)
+position = Vector2(1172, -328)
 
 [node name="coin66" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(1108, -329)
+position = Vector2(1108, -332)
 
 [node name="coin67" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(1077, -329)
+position = Vector2(1077, -332)
 
 [node name="coin68" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(1045, -329)
+position = Vector2(1045, -332)
 
 [node name="coin69" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(1012, -329)
+position = Vector2(1012, -332)
 
 [node name="coin70" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(982, -329)
+position = Vector2(982, -332)
 
 [node name="coin71" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(949, -329)
+position = Vector2(949, -332)
 
 [node name="coin72" parent="Coins" instance=ExtResource("3_0lvao")]
 position = Vector2(897, -329)
@@ -862,7 +862,7 @@ position = Vector2(670, -496)
 position = Vector2(518, -82)
 
 [node name="coin38" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(995, -126)
+position = Vector2(985, -172)
 
 [node name="coin58" parent="Coins" instance=ExtResource("3_0lvao")]
 position = Vector2(1173, -126)
@@ -877,7 +877,7 @@ position = Vector2(1173, -178)
 position = Vector2(1173, -202)
 
 [node name="coin62" parent="Coins" instance=ExtResource("3_0lvao")]
-position = Vector2(1048, -150)
+position = Vector2(1050, -119)
 
 [node name="coin63" parent="Coins" instance=ExtResource("3_0lvao")]
 position = Vector2(906, -115)

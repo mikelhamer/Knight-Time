@@ -6,45 +6,48 @@
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_haw52")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1452.0
+offset_bottom = 948.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 386.0
-offset_top = 176.0
-offset_right = 770.0
-offset_bottom = 224.0
+offset_left = 470.0
+offset_top = 209.0
+offset_right = 982.0
+offset_bottom = 273.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_gqxcq")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 64
 text = "You did it!"
 
 [node name="Button2" type="Node2D" parent="."]
 position = Vector2(-90, -39)
 
 [node name="ColorRect2" type="ColorRect" parent="Button2"]
-offset_left = 575.0
-offset_top = 519.0
-offset_right = 773.0
-offset_bottom = 551.0
+offset_left = 652.0
+offset_top = 683.0
+offset_right = 974.0
+offset_bottom = 739.0
 color = Color(0.513694, 0.000193816, 0.515814, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Button2"]
-offset_left = 574.0
-offset_top = 518.0
-offset_right = 780.0
-offset_bottom = 550.0
+offset_left = 651.0
+offset_top = 682.0
+offset_right = 975.0
+offset_bottom = 739.0
 theme_override_fonts/font = ExtResource("1_gqxcq")
-theme_override_font_sizes/font_size = 24
-text = "Do it again"
+theme_override_font_sizes/font_size = 32
+text = "Back to Title"
+metadata/_edit_use_anchors_ = true
 
 [node name="CoinsLabel" type="Label" parent="."]
-offset_left = 394.0
-offset_top = 296.0
-offset_right = 778.0
-offset_bottom = 344.0
+unique_name_in_owner = true
+offset_left = 576.0
+offset_top = 385.0
+offset_right = 876.0
+offset_bottom = 417.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_gqxcq")
 theme_override_font_sizes/font_size = 32
@@ -52,10 +55,11 @@ text = "Coins: 0/202"
 horizontal_alignment = 1
 
 [node name="CongratsLabel" type="Label" parent="."]
-offset_left = 248.0
-offset_top = 354.0
-offset_right = 924.0
-offset_bottom = 402.0
+unique_name_in_owner = true
+offset_left = 454.0
+offset_top = 439.0
+offset_right = 998.0
+offset_bottom = 471.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.933333, 0.113725, 1)
 theme_override_fonts/font = ExtResource("1_gqxcq")

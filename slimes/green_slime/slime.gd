@@ -11,6 +11,7 @@ extends Area2D
 @onready var weak_spot = $WeakSpot
 
 var direction = 'left'
+var dying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,11 +37,13 @@ func _process(delta):
 		animated_sprite.flip_h = false;
 
 func _on_weak_spot_body_entered(body):
-	killzone.monitoring = false
-	move = false
-	body.bounce()
-	animated_sprite.play("die")
-	animation_player.play('die')
+	if !dying:
+		dying = true
+		killzone.monitoring = false
+		move = false
+		body.bounce()
+		animated_sprite.play("die")
+		animation_player.play('die')
 
 
 func _on_killzone_body_entered(body):

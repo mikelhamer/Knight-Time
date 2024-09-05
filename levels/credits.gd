@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var coins_label = $CoinsLabel
-@onready var congrats_label = $CongratsLabel
+@onready var coins_label = %CoinsLabel
+@onready var congrats_label = %CongratsLabel
 
 func _ready():
 	coins_label.text = "Coins: " + str(Game.total_coins.size()) + "/202"

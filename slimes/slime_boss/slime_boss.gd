@@ -25,6 +25,9 @@ var direction = 'left'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lazer_timer.wait_time = lazer_time_seconds
+	# Clear any existing lazers on load to prevent weird effect of lazers staying on screen after death
+	get_tree().get_nodes_in_group('lazers').all(func(lazer: Node):
+		lazer.queue_free())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
