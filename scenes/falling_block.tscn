@@ -18,8 +18,8 @@ region_enabled = true
 region_rect = Rect2(32, 16, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_jlljt")
+one_way_collision = true
 
 [node name="FallTrigger" type="Area2D" parent="."]
 collision_mask = 2
