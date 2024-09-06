@@ -10,6 +10,7 @@ anchors_preset = 0
 script = ExtResource("1_4mofd")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 1452.0
 offset_bottom = 948.0
 metadata/_edit_lock_ = true
@@ -35,27 +36,27 @@ text = "Knight Time!"
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ContinueButton" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitGameButton")
 theme_override_fonts/font = ExtResource("2_bw5o5")
 theme_override_font_sizes/font_size = 32
-text = "Continue"
+text = "Resume"
 
 [node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bw5o5")
 theme_override_font_sizes/font_size = 32
-text = "Main Menu"
+text = "Exit to Main Menu"
 
 [node name="QuitGameButton" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
 theme_override_fonts/font = ExtResource("2_bw5o5")
 theme_override_font_sizes/font_size = 32
 text = "Quit Game"
 
-[connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
