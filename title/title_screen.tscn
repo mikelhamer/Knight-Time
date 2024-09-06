@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwuu7wo2tm4v3"]
+[gd_scene load_steps=31 format=3 uid="uid://bwuu7wo2tm4v3"]
 
 [ext_resource type="Script" path="res://title/title_screen.gd" id="1_3ncoc"]
 [ext_resource type="FontFile" uid="uid://dtdrb0o0ca4nh" path="res://assets/fonts/PixelOperator8.ttf" id="1_4d42q"]
@@ -318,6 +318,41 @@ _data = {
 "knight_title": SubResource("Animation_be6a7")
 }
 
+[sub_resource type="Animation" id="Animation_gwt6y"]
+resource_name = "fade_to_start"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83ddd"]
+_data = {
+"fade_to_start": SubResource("Animation_gwt6y")
+}
+
 [node name="TitleScreen" type="Node2D"]
 scale = Vector2(1.26054, 1.44598)
 script = ExtResource("1_3ncoc")
@@ -375,3 +410,13 @@ libraries = {
 "": SubResource("AnimationLibrary_6vk8l")
 }
 autoplay = "knight_title"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 656.0
+color = Color(0, 0, 0, 0)
+
+[node name="Fader" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_83ddd")
+}

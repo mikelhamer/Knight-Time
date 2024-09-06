@@ -14,6 +14,7 @@ var levels := [
 
 var level_index := 0
 var current_level: Node
+var pausable = false
 var paused = false
 
 func _ready():
@@ -54,6 +55,7 @@ func _on_title_screen_game_started():
 	remove_child(title_screen)
 	load_level(level_index)
 	hud.visible = true
+	pausable = true
 
 func _on_end_zone_reached():
 	animation_player.play("fade_to_next_level")
@@ -61,7 +63,7 @@ func _on_end_zone_reached():
 func _input(event):
 	# I'm not entirely sure why this works the way it do
 	if event.is_action_pressed("pause"):
-		if !paused:
+		if pausable and !paused:
 			%PauseMenu.show()
 			paused = true
 			get_tree().paused = true

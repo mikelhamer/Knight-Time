@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var fader = $Fader
+
 signal game_started
 
 # we dont want d pad entry to start the game, and for some reaosn snes controller
@@ -11,4 +13,7 @@ func _input(event):
 		# dont start the game for dpad entry
 		if (event is InputEventJoypadButton and event.button_index in d_pads):
 			return
-		game_started.emit()
+		fader.play("fade_to_start")
+
+func start_game():
+	game_started.emit()
