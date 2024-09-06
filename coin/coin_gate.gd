@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var game_manager = %GameManager
 @onready var animation_player = $AnimationPlayer
 @onready var blocks = $Area2D/Blocks
 @onready var label = $Label
