@@ -420,3 +420,17 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_83ddd")
 }
+
+[node name="VersionLabel" type="Label" parent="."]
+offset_left = -8.72642
+offset_top = 621.032
+offset_right = 1143.27
+offset_bottom = 685.032
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.584314)
+theme_override_fonts/font = ExtResource("1_4d42q")
+theme_override_font_sizes/font_size = 22
+text = "2.0.2
+"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
