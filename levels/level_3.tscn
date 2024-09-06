@@ -1280,7 +1280,7 @@ shape = SubResource("WorldBoundaryShape2D_f377p")
 
 [node name="CoinGate" parent="." instance=ExtResource("7_rxn3t")]
 position = Vector2(2001, -295)
-coins_required = 80
+coins_required = 90
 
 [node name="InvisiWall" type="StaticBody2D" parent="."]
 position = Vector2(-393, -90)

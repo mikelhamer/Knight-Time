@@ -129,7 +129,7 @@ func bounce():
 	bouncing = true
 	
 func bounce_high():
-	velocity.y = jump_velocity * 2.0
+	velocity.y = jump_velocity * 1.8
 	bouncing = true
 
 func get_input_direction() -> float:

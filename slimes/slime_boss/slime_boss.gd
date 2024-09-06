@@ -64,6 +64,7 @@ func _on_weak_spot_body_entered(body):
 		animation_player.play('die')
 		%Blocker.queue_free()
 	else:
+		# Get meaner!
 		speed += 20
 		lazer_time_seconds -= .7
 		lazer_timer.wait_time = lazer_time_seconds
@@ -79,17 +80,18 @@ func play_die():
 func play_yum():
 	animated_sprite.play('yum')
 	
-
 func _on_i_frame_timer_timeout():
-	killzone.monitoring = true
 	weak_spot.monitoring = true
-
+	killzone.monitoring = true
 
 func _on_laser_timer_timeout():
 	if not i_frame_timer.time_left:
 		shoot_laser()
 	
 func shoot_laser():
+	# Restart lazer timer to avoid double fire after hit
+	lazer_timer.start()
+	
 	animation_player.play("lazer")
 	var lazer_scene = load('res://slimes/slime_boss/lazer.tscn') as PackedScene
 	var lazer = lazer_scene.instantiate() as Lazer
