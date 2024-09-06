@@ -71,9 +71,11 @@ libraries = {
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_m4o4q")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_m4o4q")]
 unique_name_in_owner = true
 visible = false
 
 [connection signal="game_started" from="TitleScreen" to="." method="_on_title_screen_game_started"]
-[connection signal="unpaused" from="PauseMenu" to="." method="_on_pause_menu_unpaused"]
+[connection signal="unpaused" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_unpaused"]

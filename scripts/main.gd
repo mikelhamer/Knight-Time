@@ -64,12 +64,14 @@ func _input(event):
 	# I'm not entirely sure why this works the way it do
 	if event.is_action_pressed("pause"):
 		if pausable and !paused:
-			%PauseMenu.show()
+			%PauseMenu.pause()
 			paused = true
 			get_tree().paused = true
 		else:
 			paused = false
 
-func _on_pause_menu_unpaused():
-	%PauseMenu.hide()
+func _on_pause_menu_unpaused(method: String):
+	%PauseMenu.unpause()
 	get_tree().paused = false
+	if method == 'menu':
+		paused = false
