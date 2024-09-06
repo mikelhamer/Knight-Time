@@ -66,6 +66,10 @@ offset_top = 209.0
 offset_right = 1446.0
 offset_bottom = 273.0
 size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.453891, 0.644341, 1, 1)
+theme_override_colors/font_outline_color = Color(0.027451, 0.419608, 0.94902, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("1_gqxcq")
 theme_override_font_sizes/font_size = 64
 text = "You did it!"
@@ -125,7 +129,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 offset_right = 1452.0
 offset_bottom = 948.0
-color = Color(0, 0, 0, 0.6)
+color = Color(0, 0, 0, 0)
 
 [node name="Fader" type="AnimationPlayer" parent="."]
 libraries = {
