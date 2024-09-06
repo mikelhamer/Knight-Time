@@ -411,16 +411,6 @@ libraries = {
 }
 autoplay = "knight_title"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 656.0
-color = Color(0, 0, 0, 0)
-
-[node name="Fader" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_83ddd")
-}
-
 [node name="VersionLabel" type="Label" parent="."]
 offset_left = -8.72642
 offset_top = 621.032
@@ -434,3 +424,13 @@ text = "2.0.2
 "
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 656.0
+color = Color(0, 0, 0, 0)
+
+[node name="Fader" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_83ddd")
+}
