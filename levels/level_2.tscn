@@ -668,7 +668,7 @@ position = Vector2(1065, -150)
 position = Vector2(1143, -273)
 
 [node name="slime_purple4" parent="Slimes" instance=ExtResource("6_01ol6")]
-position = Vector2(1095, 13)
+position = Vector2(1109, 94)
 
 [node name="CoinGate" parent="." instance=ExtResource("8_dcxt8")]
 position = Vector2(1245, 377)
