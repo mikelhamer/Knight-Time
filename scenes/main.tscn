@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ul120kqpt7o3"]
+[gd_scene load_steps=8 format=3 uid="uid://ul120kqpt7o3"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_cdsy2"]
 [ext_resource type="PackedScene" uid="uid://bwuu7wo2tm4v3" path="res://title/title_screen.tscn" id="3_rdyj3"]
 [ext_resource type="PackedScene" uid="uid://bac5e641aovsr" path="res://scenes/hud.tscn" id="4_3bxsk"]
+[ext_resource type="PackedScene" uid="uid://hx8d5plph751" path="res://pause_menu/pause_menu.tscn" id="4_m4o4q"]
 
 [sub_resource type="Animation" id="Animation_f24hw"]
 length = 0.001
@@ -70,4 +71,9 @@ libraries = {
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
+[node name="PauseMenu" parent="." instance=ExtResource("4_m4o4q")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="game_started" from="TitleScreen" to="." method="_on_title_screen_game_started"]
+[connection signal="unpaused" from="PauseMenu" to="." method="_on_pause_menu_unpaused"]

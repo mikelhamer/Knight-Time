@@ -31,7 +31,6 @@ func add_level_coin(id, position):
 	coins_updated.emit(level_coins.size() + total_coins.size())
 
 func reset():
-	print("Reset")
 	level_coins = {}
 	total_coins = {}
 	checkpoint_position = Vector2(0, 0)
