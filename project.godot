@@ -26,6 +26,7 @@ SaveService="*res://save_service.gd"
 
 window/size/viewport_width=1452
 window/size/viewport_height=948
+window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [input]
